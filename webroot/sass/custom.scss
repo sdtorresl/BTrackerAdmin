@@ -12,6 +12,7 @@ body {
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column;
+	background: #3678C6;
 }
 
 .home {
@@ -21,6 +22,20 @@ body {
 
 main {
 	flex: 1 0 auto;
+}
+
+#main-menu {
+	nav ul a {
+		text-transform: uppercase;
+	}
+
+	i.right {
+		margin-right: 0;
+	}
+}
+
+.wrapper {
+	padding: 5% 5%;
 }
 
 .brand-logo{
@@ -49,4 +64,13 @@ footer {
 
 h1, h2, h3, h4, h5 {
 	color: $orange;
+	// margin-top: 5%;
+	// margin-bottom: 5%;
+}
+
+h1 {
+	background:$orange;
+	color: $primary-color;
+	padding: 10px;
+	margin-top: 0;
 }

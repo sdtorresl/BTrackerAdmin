@@ -29,18 +29,18 @@ $cakeDescription = 'BTracker Admin';
 <!DOCTYPE html>
 <html>
 <head>
-		<?= $this->Html->charset() ?>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>
-				<?= $cakeDescription ?>
-		</title>
-		<!--Import Google Icon Font-->
-		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<?= $this->Html->meta('icon') ?>
-		<?= $this->Html->css('materialize.css') ?>
+	<?= $this->Html->charset() ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+			<?= $cakeDescription ?>
+	</title>
+	<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<?= $this->Html->meta('icon') ?>
+	<?= $this->Html->css('materialize.css') ?>
 
-		<!--Let browser know website is optimized for mobile-->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body class="home">

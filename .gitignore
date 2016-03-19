@@ -17,3 +17,4 @@
 /app/Config/database.php
 /vendors/*
 >>>>>>> f740d93252303decfd714d7dfcf474d2bb05752b
+/webroot/.sass-cache/*

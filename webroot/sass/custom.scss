@@ -1,0 +1,52 @@
+// Mixins
+// @import "components/prefixer";
+@import "components/mixins";
+@import "components/color";
+
+// Variables;
+@import "components/variables";
+
+$orange: color("orange", "base");
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.home {
+	background-image: url(../img/background_blur.png);
+	background-size: 100%;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+.brand-logo{
+	img{
+		max-height: 40px;
+		margin: 10px;
+	}
+}
+
+.white-bg {
+	background-color: #fff;
+}
+
+.top-spacer {
+	margin-top: 10%;
+}
+
+footer {
+	a {
+		color: $orange;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+h1, h2, h3, h4, h5 {
+	color: $orange;
+}

@@ -34,11 +34,11 @@
         </table>
         <div class="paginator">
             <ul class="pagination">
-                <?= $this->Paginator->prev('< ' . __('previous')) ?>
+                <?= $this->Paginator->prev("") ?>
                 <?= $this->Paginator->numbers() ?>
-                <?= $this->Paginator->next(__('next') . ' >') ?>
+                <?= $this->Paginator->next("") ?>
             </ul>
-            <p><?= $this->Paginator->counter() ?></p>
+            <!-- <p><?= $this->Paginator->counter() ?></p> -->
         </div>
     </div>
 </div>

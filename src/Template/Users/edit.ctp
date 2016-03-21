@@ -1,19 +1,8 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $user->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="users form large-9 medium-8 columns content">
-    <?= $this->Form->create($user) ?>
-    <fieldset>
-        <legend><?= __('Edit User') ?></legend>
+
+<div class="users form white-bg z-depth-3">
+    <div class="wrapper">
+        <h1><?= __('Edit User') ?></h1>
+        <?= $this->Form->create($user) ?>
         <?php
             echo $this->Form->input('username');
             echo $this->Form->input('email');
@@ -22,7 +11,9 @@
             echo $this->Form->input('password');
             echo $this->Form->input('role');
         ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+ 
+        <?= $this->Form->button(__('Submit'), ['class' => 'btn waves-effect waves-light right']) ?>
+        <?= $this->Form->end() ?>
+        <div class="clear"></div>
+    </div>
 </div>

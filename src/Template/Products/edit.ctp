@@ -1,25 +1,8 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $product->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $product->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Products'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Purchases'), ['controller' => 'Purchases', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Purchase'), ['controller' => 'Purchases', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Customers'), ['controller' => 'Customers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Customer'), ['controller' => 'Customers', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Regions'), ['controller' => 'Regions', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Region'), ['controller' => 'Regions', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="products form large-9 medium-8 columns content">
-    <?= $this->Form->create($product) ?>
-    <fieldset>
-        <legend><?= __('Edit Product') ?></legend>
+
+<div class="products form white-bg z-depth-3">
+    <div class="wrapper">
+        <h1><?= __('Edit Product') ?></h1>
+        <?= $this->Form->create($product) ?>
         <?php
             echo $this->Form->input('name');
             echo $this->Form->input('description');
@@ -28,7 +11,9 @@
             echo $this->Form->input('customers._ids', ['options' => $customers]);
             echo $this->Form->input('regions._ids', ['options' => $regions]);
         ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+ 
+        <?= $this->Form->button(__('Submit'), ['class' => 'btn waves-effect waves-light right']) ?>
+        <?= $this->Form->end() ?>
+        <div class="clear"></div>
+    </div>
 </div>

@@ -1684,4 +1684,10 @@ h1 {
   padding: 10px;
   margin-top: 0; }
 
+form button {
+  margin-top: 20px; }
+
+.clear {
+  clear: both; }
+
 /*# sourceMappingURL=custom.css.map */

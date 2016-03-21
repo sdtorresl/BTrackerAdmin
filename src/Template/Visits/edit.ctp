@@ -1,29 +1,16 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $visit->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $visit->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Visits'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Customers'), ['controller' => 'Customers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Customer'), ['controller' => 'Customers', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Regions'), ['controller' => 'Regions', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Region'), ['controller' => 'Regions', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="visits form large-9 medium-8 columns content">
-    <?= $this->Form->create($visit) ?>
-    <fieldset>
-        <legend><?= __('Edit Visit') ?></legend>
+
+<div class="visits form white-bg z-depth-3">
+    <div class="wrapper">
+        <h1><?= __('Edit Visit') ?></h1>
+        <?= $this->Form->create($visit) ?>
         <?php
             echo $this->Form->input('trigger_time');
             echo $this->Form->input('leave_time');
             echo $this->Form->input('region_id', ['options' => $regions]);
         ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+ 
+        <?= $this->Form->button(__('Submit'), ['class' => 'btn waves-effect waves-light right']) ?>
+        <?= $this->Form->end() ?>
+        <div class="clear"></div>
+    </div>
 </div>

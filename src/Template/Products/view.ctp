@@ -87,8 +87,8 @@
             <?php endif; ?>
         </div>
             <div class="related">
-            <h4><?= __('Related Regions') ?></h4>
-            <?php if (!empty($product->regions)): ?>
+            <h4><?= __('Related Zones') ?></h4>
+            <?php if (!empty($product->zones)): ?>
             <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">
                 <tr>
                             <th><?= __('Id') ?></th>
@@ -96,15 +96,15 @@
                             <th><?= __('Description') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                 </tr>
-                <?php foreach ($product->regions as $regions): ?>
+                <?php foreach ($product->zones as $zones): ?>
                 <tr>
-                    <td><?= h($regions->id) ?></td>
-                    <td><?= h($regions->name) ?></td>
-                    <td><?= h($regions->description) ?></td>
+                    <td><?= h($zones->id) ?></td>
+                    <td><?= h($zones->name) ?></td>
+                    <td><?= h($zones->description) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['controller' => 'Regions', 'action' => 'view', $regions->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['controller' => 'Regions', 'action' => 'edit', $regions->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Regions', 'action' => 'delete', $regions->id], ['confirm' => __('Are you sure you want to delete # {0}?', $regions->id)]) ?>
+                        <?= $this->Html->link(__('View'), ['controller' => 'Zones', 'action' => 'view', $zones->id]) ?>
+                        <?= $this->Html->link(__('Edit'), ['controller' => 'Zones', 'action' => 'edit', $zones->id]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Zones', 'action' => 'delete', $zones->id], ['confirm' => __('Are you sure you want to delete # {0}?', $zones->id)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>

@@ -10,7 +10,7 @@
                     <th><?= $this->Paginator->sort('major') ?></th>
                     <th><?= $this->Paginator->sort('minor') ?></th>
                     <th><?= $this->Paginator->sort('detection_range') ?></th>
-                    <th><?= $this->Paginator->sort('region_id') ?></th>
+                    <th><?= $this->Paginator->sort('zone_id') ?></th>
                     <th><?= $this->Paginator->sort('user_id') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
@@ -25,7 +25,7 @@
                         <td><?= $this->Number->format($beacon->major) ?></td>
                         <td><?= $this->Number->format($beacon->minor) ?></td>
                         <td><?= $this->Number->format($beacon->detection_range) ?></td>
-                        <td><?= $beacon->has('region') ? $this->Html->link($beacon->region->name, ['controller' => 'Regions', 'action' => 'view', $beacon->region->id]) : '' ?></td>
+                        <td><?= $beacon->has('zone') ? $this->Html->link($beacon->zone->name, ['controller' => 'Zones', 'action' => 'view', $beacon->zone->id]) : '' ?></td>
                         <td><?= $beacon->has('user') ? $this->Html->link($beacon->user->id, ['controller' => 'Users', 'action' => 'view', $beacon->user->id]) : '' ?></td>
                         <td><?= h($beacon->created) ?></td>
                         <td><?= h($beacon->modified) ?></td>

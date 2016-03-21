@@ -19,7 +19,7 @@ class VisitsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Customers', 'Regions']
+            'contain' => ['Customers', 'Zones']
         ];
         $visits = $this->paginate($this->Visits);
 
@@ -37,7 +37,7 @@ class VisitsController extends AppController
     public function view($id = null)
     {
         $visit = $this->Visits->get($id, [
-            'contain' => ['Customers', 'Regions']
+            'contain' => ['Customers', 'Zones']
         ]);
 
         $this->set('visit', $visit);
@@ -62,8 +62,8 @@ class VisitsController extends AppController
             }
         }
         $customers = $this->Visits->Customers->find('list', ['limit' => 200]);
-        $regions = $this->Visits->Regions->find('list', ['limit' => 200]);
-        $this->set(compact('visit', 'customers', 'regions'));
+        $zones = $this->Visits->Zones->find('list', ['limit' => 200]);
+        $this->set(compact('visit', 'customers', 'zones'));
         $this->set('_serialize', ['visit']);
     }
 
@@ -89,8 +89,8 @@ class VisitsController extends AppController
             }
         }
         $customers = $this->Visits->Customers->find('list', ['limit' => 200]);
-        $regions = $this->Visits->Regions->find('list', ['limit' => 200]);
-        $this->set(compact('visit', 'customers', 'regions'));
+        $zones = $this->Visits->Zones->find('list', ['limit' => 200]);
+        $this->set(compact('visit', 'customers', 'zones'));
         $this->set('_serialize', ['visit']);
     }
 

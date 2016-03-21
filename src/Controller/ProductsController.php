@@ -34,7 +34,7 @@ class ProductsController extends AppController
     public function view($id = null)
     {
         $product = $this->Products->get($id, [
-            'contain' => ['Customers', 'Regions', 'Purchases']
+            'contain' => ['Customers', 'Zones', 'Purchases']
         ]);
 
         $this->set('product', $product);
@@ -59,8 +59,8 @@ class ProductsController extends AppController
             }
         }
         $customers = $this->Products->Customers->find('list', ['limit' => 200]);
-        $regions = $this->Products->Regions->find('list', ['limit' => 200]);
-        $this->set(compact('product', 'customers', 'regions'));
+        $zones = $this->Products->Zones->find('list', ['limit' => 200]);
+        $this->set(compact('product', 'customers', 'zones'));
         $this->set('_serialize', ['product']);
     }
 
@@ -74,7 +74,7 @@ class ProductsController extends AppController
     public function edit($id = null)
     {
         $product = $this->Products->get($id, [
-            'contain' => ['Customers', 'Regions']
+            'contain' => ['Customers', 'Zones']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $product = $this->Products->patchEntity($product, $this->request->data);
@@ -86,8 +86,8 @@ class ProductsController extends AppController
             }
         }
         $customers = $this->Products->Customers->find('list', ['limit' => 200]);
-        $regions = $this->Products->Regions->find('list', ['limit' => 200]);
-        $this->set(compact('product', 'customers', 'regions'));
+        $zones = $this->Products->Zones->find('list', ['limit' => 200]);
+        $this->set(compact('product', 'customers', 'zones'));
         $this->set('_serialize', ['product']);
     }
 

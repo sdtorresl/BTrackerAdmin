@@ -58,10 +58,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 					<li><?= $this->Html->link(__('Add'), ['controller' => 'Beacons', 'action' => 'add']) ?></li>
 				</ul>
 
-				<!-- Dropdown for regions -->
-				<ul class="dropdown-content" id="regions1">
-					<li><?= $this->Html->link(__('List'), ['controller' => 'Regions', 'action' => 'index']) ?></li>
-					<li><?= $this->Html->link(__('Add'), ['controller' => 'Regions', 'action' => 'add']) ?></li>
+				<!-- Dropdown for zones -->
+				<ul class="dropdown-content" id="zones1">
+					<li><?= $this->Html->link(__('List'), ['controller' => 'Zones', 'action' => 'index']) ?></li>
+					<li><?= $this->Html->link(__('Add'), ['controller' => 'Zones', 'action' => 'add']) ?></li>
 				</ul>
 
 				<!-- Dropdown for products -->
@@ -90,10 +90,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 					<li><?= $this->Html->link(__('Add'), ['controller' => 'Beacons', 'action' => 'add']) ?></li>
 				</ul>
 
-				<!-- Dropdown for regions -->
-				<ul class="dropdown-content" id="regions2">
-					<li><?= $this->Html->link(__('List'), ['controller' => 'Regions', 'action' => 'index']) ?></li>
-					<li><?= $this->Html->link(__('Add'), ['controller' => 'Regions', 'action' => 'add']) ?></li>
+				<!-- Dropdown for zones -->
+				<ul class="dropdown-content" id="zones2">
+					<li><?= $this->Html->link(__('List'), ['controller' => 'Zones', 'action' => 'index']) ?></li>
+					<li><?= $this->Html->link(__('Add'), ['controller' => 'Zones', 'action' => 'add']) ?></li>
 				</ul>
 
 				<!-- Dropdown for products -->
@@ -129,7 +129,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-button" href="#!" data-activates="regions1"><?= __('Regions') ?>
+							<a class="dropdown-button" href="#!" data-activates="zones1"><?= __('Zones') ?>
 								<i class="material-icons right">arrow_drop_down</i>
 							</a>
 						</li>
@@ -157,7 +157,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-button" href="#!" data-activates="regions2"><?= __('Regions') ?>
+							<a class="dropdown-button" href="#!" data-activates="zones2"><?= __('Zones') ?>
 								<i class="material-icons right">arrow_drop_down</i>
 							</a>
 						</li>

@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
  * Visits Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Customers
- * @property \Cake\ORM\Association\BelongsTo $Regions
+ * @property \Cake\ORM\Association\BelongsTo $Zones
  */
 class VisitsTable extends Table
 {
@@ -34,8 +34,8 @@ class VisitsTable extends Table
             'foreignKey' => 'customer_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Regions', [
-            'foreignKey' => 'region_id',
+        $this->belongsTo('Zones', [
+            'foreignKey' => 'zone_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -73,7 +73,7 @@ class VisitsTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['customer_id'], 'Customers'));
-        $rules->add($rules->existsIn(['region_id'], 'Regions'));
+        $rules->add($rules->existsIn(['zone_id'], 'Zones'));
         return $rules;
     }
 }

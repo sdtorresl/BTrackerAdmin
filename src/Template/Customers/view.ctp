@@ -56,7 +56,7 @@
                             <th><?= __('Trigger Time') ?></th>
                             <th><?= __('Leave Time') ?></th>
                             <th><?= __('Customer Id') ?></th>
-                            <th><?= __('Region Id') ?></th>
+                            <th><?= __('Zone Id') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($customer->visits as $visits): ?>
@@ -65,7 +65,7 @@
                     <td><?= h($visits->trigger_time) ?></td>
                     <td><?= h($visits->leave_time) ?></td>
                     <td><?= h($visits->customer_id) ?></td>
-                    <td><?= h($visits->region_id) ?></td>
+                    <td><?= h($visits->zone_id) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['controller' => 'Visits', 'action' => 'view', $visits->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['controller' => 'Visits', 'action' => 'edit', $visits->id]) ?>

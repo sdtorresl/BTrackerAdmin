@@ -8,7 +8,7 @@
             echo $this->Form->input('major');
             echo $this->Form->input('minor');
             echo $this->Form->input('detection_range');
-            echo $this->Form->input('region_id', ['options' => $regions]);
+            echo $this->Form->input('zone_id', ['options' => $zones]);
             echo $this->Form->input('user_id', ['options' => $users]);
         ?>
  

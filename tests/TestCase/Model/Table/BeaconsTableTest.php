@@ -25,13 +25,13 @@ class BeaconsTableTest extends TestCase
      */
     public $fixtures = [
         'app.beacons',
-        'app.regions',
+        'app.zones',
         'app.visits',
         'app.customers',
         'app.purchases',
         'app.products',
         'app.customers_products',
-        'app.regions_products',
+        'app.products_zones',
         'app.users'
     ];
 

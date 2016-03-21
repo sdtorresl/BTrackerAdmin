@@ -6,7 +6,7 @@
         <?php
             echo $this->Form->input('trigger_time');
             echo $this->Form->input('leave_time');
-            echo $this->Form->input('region_id', ['options' => $regions]);
+            echo $this->Form->input('zone_id', ['options' => $zones]);
         ?>
  
         <?= $this->Form->button(__('Submit'), ['class' => 'btn waves-effect waves-light right']) ?>

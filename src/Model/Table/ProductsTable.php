@@ -12,7 +12,7 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\HasMany $Purchases
  * @property \Cake\ORM\Association\BelongsToMany $Customers
- * @property \Cake\ORM\Association\BelongsToMany $Regions
+ * @property \Cake\ORM\Association\BelongsToMany $Zones
  */
 class ProductsTable extends Table
 {
@@ -41,10 +41,10 @@ class ProductsTable extends Table
             'targetForeignKey' => 'customer_id',
             'joinTable' => 'customers_products'
         ]);
-        $this->belongsToMany('Regions', [
+        $this->belongsToMany('Zones', [
             'foreignKey' => 'product_id',
-            'targetForeignKey' => 'region_id',
-            'joinTable' => 'regions_products'
+            'targetForeignKey' => 'zone_id',
+            'joinTable' => 'products_zones'
         ]);
     }
 

@@ -29,10 +29,10 @@ class VisitsTableTest extends TestCase
         'app.purchases',
         'app.products',
         'app.customers_products',
-        'app.regions',
+        'app.zones',
         'app.beacons',
         'app.users',
-        'app.regions_products'
+        'app.products_zones'
     ];
 
     /**

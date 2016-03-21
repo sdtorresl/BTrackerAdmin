@@ -9,7 +9,7 @@
                     <th><?= $this->Paginator->sort('trigger_time') ?></th>
                     <th><?= $this->Paginator->sort('leave_time') ?></th>
                     <th><?= $this->Paginator->sort('customer_id') ?></th>
-                    <th><?= $this->Paginator->sort('region_id') ?></th>
+                    <th><?= $this->Paginator->sort('zone_id') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -20,7 +20,7 @@
                         <td><?= h($visit->trigger_time) ?></td>
                         <td><?= h($visit->leave_time) ?></td>
                         <td><?= $visit->has('customer') ? $this->Html->link($visit->customer->id, ['controller' => 'Customers', 'action' => 'view', $visit->customer->id]) : '' ?></td>
-                        <td><?= $visit->has('region') ? $this->Html->link($visit->region->name, ['controller' => 'Regions', 'action' => 'view', $visit->region->id]) : '' ?></td>
+                        <td><?= $visit->has('zone') ? $this->Html->link($visit->zone->name, ['controller' => 'Zones', 'action' => 'view', $visit->zone->id]) : '' ?></td>
                         <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $visit->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $visit->id]) ?>

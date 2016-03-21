@@ -10,7 +10,7 @@ use Cake\Validation\Validator;
 /**
  * Beacons Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Regions
+ * @property \Cake\ORM\Association\BelongsTo $Zones
  * @property \Cake\ORM\Association\BelongsTo $Users
  */
 class BeaconsTable extends Table
@@ -32,8 +32,8 @@ class BeaconsTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Regions', [
-            'foreignKey' => 'region_id',
+        $this->belongsTo('Zones', [
+            'foreignKey' => 'zone_id',
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('Users', [
@@ -85,7 +85,7 @@ class BeaconsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['region_id'], 'Regions'));
+        $rules->add($rules->existsIn(['zone_id'], 'Zones'));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
         return $rules;
     }

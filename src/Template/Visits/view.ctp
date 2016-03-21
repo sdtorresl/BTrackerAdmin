@@ -12,8 +12,8 @@
                 <td><?= $visit->has('customer') ? $this->Html->link($visit->customer->id, ['controller' => 'Customers', 'action' => 'view', $visit->customer->id]) : '' ?></td>
             </tr>
                         <tr>
-                <th><?= __('Region') ?></th>
-                <td><?= $visit->has('region') ? $this->Html->link($visit->region->name, ['controller' => 'Regions', 'action' => 'view', $visit->region->id]) : '' ?></td>
+                <th><?= __('Zone') ?></th>
+                <td><?= $visit->has('zone') ? $this->Html->link($visit->zone->name, ['controller' => 'Zones', 'action' => 'view', $visit->zone->id]) : '' ?></td>
             </tr>
                                     <tr>
                 <th><?= __('Id') ?></th>

@@ -11,8 +11,8 @@ use Cake\ORM\Entity;
  * @property string $leave_time
  * @property int $customer_id
  * @property \App\Model\Entity\Customer $customer
- * @property int $region_id
- * @property \App\Model\Entity\Region $region
+ * @property int $zone_id
+ * @property \App\Model\Entity\Zone $zone
  */
 class Visit extends Entity
 {

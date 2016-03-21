@@ -50,7 +50,7 @@
                             <th><?= __('Major') ?></th>
                             <th><?= __('Minor') ?></th>
                             <th><?= __('Detection Range') ?></th>
-                            <th><?= __('Region Id') ?></th>
+                            <th><?= __('Zone Id') ?></th>
                             <th><?= __('User Id') ?></th>
                             <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
@@ -63,7 +63,7 @@
                     <td><?= h($beacons->major) ?></td>
                     <td><?= h($beacons->minor) ?></td>
                     <td><?= h($beacons->detection_range) ?></td>
-                    <td><?= h($beacons->region_id) ?></td>
+                    <td><?= h($beacons->zone_id) ?></td>
                     <td><?= h($beacons->user_id) ?></td>
                     <td><?= h($beacons->created) ?></td>
                     <td><?= h($beacons->modified) ?></td>

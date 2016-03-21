@@ -9,7 +9,7 @@
             echo $this->Form->input('local_uri');
             echo $this->Form->input('price');
             echo $this->Form->input('customers._ids', ['options' => $customers]);
-            echo $this->Form->input('regions._ids', ['options' => $regions]);
+            echo $this->Form->input('zones._ids', ['options' => $zones]);
         ?>
  
         <?= $this->Form->button(__('Submit'), ['class' => 'btn waves-effect waves-light right']) ?>

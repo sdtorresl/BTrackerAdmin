@@ -15,6 +15,7 @@ use Cake\ORM\Entity;
  * @property string $role
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
+ * @property \App\Model\Entity\Beacon[] $beacons
  */
 class User extends Entity
 {

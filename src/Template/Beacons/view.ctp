@@ -8,8 +8,8 @@
                 <td><?= h($beacon->uuid) ?></td>
             </tr>
                         <tr>
-                <th><?= __('Region') ?></th>
-                <td><?= $beacon->has('region') ? $this->Html->link($beacon->region->name, ['controller' => 'Regions', 'action' => 'view', $beacon->region->id]) : '' ?></td>
+                <th><?= __('Zone') ?></th>
+                <td><?= $beacon->has('zone') ? $this->Html->link($beacon->zone->name, ['controller' => 'Zones', 'action' => 'view', $beacon->zone->id]) : '' ?></td>
             </tr>
                         <tr>
                 <th><?= __('User') ?></th>

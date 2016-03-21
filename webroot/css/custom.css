@@ -1690,4 +1690,7 @@ form button {
 .clear {
   clear: both; }
 
+ul.pagination li.disabled {
+  color: #ccc; }
+
 /*# sourceMappingURL=custom.css.map */

@@ -1,25 +1,25 @@
 <div class="customers view white-bg z-depth-3">
     <div class="wrapper">
         
-        <h1><?= h($customer->id) ?></h1>
+        <h1><?= h($customer->mac) ?></h1>
         <table class="vertical-table highlight bordered responsive-table">
                         <tr>
                 <th><?= __('Mac') ?></th>
                 <td><?= h($customer->mac) ?></td>
             </tr>
-                        <tr>
-                <th><?= __('Created') ?></th>
-                <td><?= h($customer->created) ?></td>
-            </tr>
-                        <tr>
-                <th><?= __('Modified') ?></th>
-                <td><?= h($customer->modified) ?></td>
-            </tr>
                                     <tr>
                 <th><?= __('Id') ?></th>
                 <td><?= $this->Number->format($customer->id) ?></td>
             </tr>
-                        </table>
+                            <tr>
+                <th><?= __('Created') ?></th>
+                <td><?= h($customer->created) ?></td>
+            </tr>
+                <tr>
+                <th><?= __('Modified') ?></th>
+                <td><?= h($customer->modified) ?></td>
+            </tr>
+                    </table>
                 <div class="related">
             <h4><?= __('Related Purchases') ?></h4>
             <?php if (!empty($customer->purchases)): ?>

@@ -26,7 +26,7 @@
                         <td><?= $this->Number->format($beacon->minor) ?></td>
                         <td><?= $this->Number->format($beacon->detection_range) ?></td>
                         <td><?= $beacon->has('zone') ? $this->Html->link($beacon->zone->name, ['controller' => 'Zones', 'action' => 'view', $beacon->zone->id]) : '' ?></td>
-                        <td><?= $beacon->has('user') ? $this->Html->link($beacon->user->id, ['controller' => 'Users', 'action' => 'view', $beacon->user->id]) : '' ?></td>
+                        <td><?= $beacon->has('user') ? $this->Html->link($beacon->user->username, ['controller' => 'Users', 'action' => 'view', $beacon->user->id]) : '' ?></td>
                         <td><?= h($beacon->created) ?></td>
                         <td><?= h($beacon->modified) ?></td>
                         <td class="actions">

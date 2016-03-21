@@ -76,4 +76,14 @@ class VisitsControllerTest extends IntegrationTestCase
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
+
+    /**
+     * Test hot method
+     *
+     * @return void
+     */
+    public function testHot()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
 }

@@ -10152,4 +10152,7 @@ form button {
 .clear {
   clear: both; }
 
+ul.pagination li.disabled {
+  color: #ccc; }
+
 /*# sourceMappingURL=materialize.css.map */

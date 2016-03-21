@@ -27,7 +27,7 @@ class BeaconsTable extends Table
         parent::initialize($config);
 
         $this->table('beacons');
-        $this->displayField('id');
+        $this->displayField('uuid');
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');

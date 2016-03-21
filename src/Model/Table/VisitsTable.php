@@ -58,6 +58,7 @@ class VisitsTable extends Table
             ->notEmpty('trigger_time');
 
         $validator
+            ->dateTime('leave_time')
             ->allowEmpty('leave_time');
 
         return $validator;

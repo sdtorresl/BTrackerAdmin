@@ -84,3 +84,7 @@ form {
 .clear {
 	clear: both;
 }
+
+ul.pagination li.disabled {
+	color: #ccc;
+}

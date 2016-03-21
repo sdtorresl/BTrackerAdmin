@@ -19,7 +19,7 @@ class VisitsFixture extends TestFixture
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'trigger_time' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'leave_time' => ['type' => 'string', 'length' => 45, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
+        'leave_time' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'customer_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'zone_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_indexes' => [
@@ -46,8 +46,8 @@ class VisitsFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'trigger_time' => '2016-03-21 15:17:27',
-            'leave_time' => 'Lorem ipsum dolor sit amet',
+            'trigger_time' => '2016-03-21 18:05:26',
+            'leave_time' => '2016-03-21 18:05:26',
             'customer_id' => 1,
             'zone_id' => 1
         ],

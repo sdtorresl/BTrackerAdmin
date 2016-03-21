@@ -1,7 +1,7 @@
 <div class="beacons view white-bg z-depth-3">
     <div class="wrapper">
         
-        <h1><?= h($beacon->id) ?></h1>
+        <h1><?= h($beacon->uuid) ?></h1>
         <table class="vertical-table highlight bordered responsive-table">
                         <tr>
                 <th><?= __('Uuid') ?></th>
@@ -13,7 +13,7 @@
             </tr>
                         <tr>
                 <th><?= __('User') ?></th>
-                <td><?= $beacon->has('user') ? $this->Html->link($beacon->user->id, ['controller' => 'Users', 'action' => 'view', $beacon->user->id]) : '' ?></td>
+                <td><?= $beacon->has('user') ? $this->Html->link($beacon->user->username, ['controller' => 'Users', 'action' => 'view', $beacon->user->id]) : '' ?></td>
             </tr>
                                     <tr>
                 <th><?= __('Id') ?></th>

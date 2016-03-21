@@ -8,8 +8,8 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $mac
- * @property string $created
- * @property string $modified
+ * @property \Cake\I18n\Time $created
+ * @property \Cake\I18n\Time $modified
  * @property \App\Model\Entity\Purchase[] $purchases
  * @property \App\Model\Entity\Visit[] $visits
  * @property \App\Model\Entity\Product[] $products

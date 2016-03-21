@@ -8,7 +8,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property \Cake\I18n\Time $trigger_time
- * @property string $leave_time
+ * @property \Cake\I18n\Time $leave_time
  * @property int $customer_id
  * @property \App\Model\Entity\Customer $customer
  * @property int $zone_id

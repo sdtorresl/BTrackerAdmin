@@ -18,13 +18,24 @@ class VisitsController extends AppController
      */
     public function index()
     {
+        // All visits
         $this->paginate = [
             'contain' => ['Customers', 'Zones']
         ];
         $visits = $this->paginate($this->Visits);
-
         $this->set(compact('visits'));
         $this->set('_serialize', ['visits']);
+
+        //Visits by zone 
+        $query = $this->Visits
+            ->find('all', ['contain' => ['Zones']])
+            ->group('Zones.name');
+        $query->select([
+            'visits' => $query->func()->count('*'),
+            'Zones.name',
+            'trigger_time']);
+        $this->set('visits_by_zone', $this->paginate($query));
+        $this->set('_serialize', ['visits_by_zone']);
     }
 
     /**
@@ -111,5 +122,25 @@ class VisitsController extends AppController
             $this->Flash->error(__('The visit could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Index method
+     *
+     * @return \Cake\Network\Response|null
+     */
+    public function hot()
+    {
+        $query = $this->Visits
+            ->find('all', ['contain' => ['Zones']])
+            // ->select(['Zones.id'])
+            ->group('Zones.name');
+        $query->select([
+            'visits' => $query->func()->count('*'),
+            'Zones.name',
+            'trigger_time']);
+
+        $this->set('visits', $this->paginate($query));
+        $this->set('_serialize', ['visits']);
     }
 }

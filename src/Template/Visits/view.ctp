@@ -4,12 +4,8 @@
         <h1><?= h($visit->id) ?></h1>
         <table class="vertical-table highlight bordered responsive-table">
                         <tr>
-                <th><?= __('Leave Time') ?></th>
-                <td><?= h($visit->leave_time) ?></td>
-            </tr>
-                        <tr>
                 <th><?= __('Customer') ?></th>
-                <td><?= $visit->has('customer') ? $this->Html->link($visit->customer->id, ['controller' => 'Customers', 'action' => 'view', $visit->customer->id]) : '' ?></td>
+                <td><?= $visit->has('customer') ? $this->Html->link($visit->customer->mac, ['controller' => 'Customers', 'action' => 'view', $visit->customer->id]) : '' ?></td>
             </tr>
                         <tr>
                 <th><?= __('Zone') ?></th>
@@ -22,6 +18,10 @@
                             <tr>
                 <th><?= __('Trigger Time') ?></th>
                 <td><?= h($visit->trigger_time) ?></td>
+            </tr>
+                <tr>
+                <th><?= __('Leave Time') ?></th>
+                <td><?= h($visit->leave_time) ?></td>
             </tr>
                     </table>
             </div>

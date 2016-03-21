@@ -5,7 +5,7 @@
         <?= $this->Form->create($visit) ?>
         <?php
             echo $this->Form->input('trigger_time');
-            echo $this->Form->input('leave_time');
+            echo $this->Form->input('leave_time', ['empty' => true]);
             echo $this->Form->input('zone_id', ['options' => $zones]);
         ?>
  

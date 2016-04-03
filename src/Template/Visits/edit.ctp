@@ -9,6 +9,8 @@
             echo $this->Form->input('trigger_time');
             echo $this->Form->input('leave_time', ['empty' => true]);
             echo $this->Form->input('zone_id', ['options' => $zones]);
+            echo $this->Form->input('customer_id', ['options' => $customers]);
+
         ?>
  
         <?= $this->Form->button(__('Submit'), ['class' => 'btn waves-effect waves-light right']) ?>

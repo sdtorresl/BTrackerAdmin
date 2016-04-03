@@ -56,10 +56,8 @@ $cakeDescription = 'BTracker Admin';
 
         <div class="container">
             <div class="section">
-                <div class="row">
-                    <?= $this->Flash->render() ?>
-                    <?= $this->fetch('content') ?>
-                </div>
+                <?= $this->Flash->render() ?>
+                <?= $this->fetch('content') ?>
             </div>
         </div>
 

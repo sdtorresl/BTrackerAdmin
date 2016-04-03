@@ -1,6 +1,6 @@
 <div class="users view white-bg z-depth-3">
     <div class="card-panel grey darken-4">
-        <h1><?= h($user->username) ?></h1>
+        <h1><?= h($user->first_name) . " " . h($user->last_name) ?></h1>
     </div>
     <div class="wrapper">
         <table class="vertical-table highlight bordered responsive-table">
@@ -42,32 +42,28 @@
             </tr>
                     </table>
                 <div class="related">
-            <h4><?= __('Related Beacons') ?></h4>
-            <?php if (!empty($user->beacons)): ?>
+            <h4><?= __('Related Stores') ?></h4>
+            <?php if (!empty($user->stores)): ?>
             <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">
                 <tr>
                             <th><?= __('Id') ?></th>
-                            <th><?= __('Uuid') ?></th>
-                            <th><?= __('Major') ?></th>
-                            <th><?= __('Minor') ?></th>
-                            <th><?= __('Detection Range') ?></th>
+                            <th><?= __('Name') ?></th>
+                            <th><?= __('Description') ?></th>
                             <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                 </tr>
-                <?php foreach ($user->beacons as $beacons): ?>
+                <?php foreach ($user->stores as $stores): ?>
                 <tr>
-                    <td><?= h($beacons->id) ?></td>
-                    <td><?= h($beacons->uuid) ?></td>
-                    <td><?= h($beacons->major) ?></td>
-                    <td><?= h($beacons->minor) ?></td>
-                    <td><?= h($beacons->detection_range) ?></td>
-                    <td><?= h($beacons->created) ?></td>
-                    <td><?= h($beacons->modified) ?></td>
+                    <td><?= h($stores->id) ?></td>
+                    <td><?= h($stores->name) ?></td>
+                    <td><?= h($stores->description) ?></td>
+                    <td><?= h($stores->created) ?></td>
+                    <td><?= h($stores->modified) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['controller' => 'Beacons', 'action' => 'view', $beacons->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['controller' => 'Beacons', 'action' => 'edit', $beacons->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Beacons', 'action' => 'delete', $beacons->id], ['confirm' => __('Are you sure you want to delete # {0}?', $beacons->id)]) ?>
+                        <?= $this->Html->link(__('View'), ['controller' => 'Stores', 'action' => 'view', $stores->id]) ?>
+                        <?= $this->Html->link(__('Edit'), ['controller' => 'Stores', 'action' => 'edit', $stores->id]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Stores', 'action' => 'delete', $stores->id], ['confirm' => __('Are you sure you want to delete # {0}?', $stores->id)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>

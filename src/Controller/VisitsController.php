@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Datasource\ConnectionManager;
 
 /**
  * Visits Controller
@@ -64,8 +65,8 @@ class VisitsController extends AppController
                 $this->Flash->error(__('The visit could not be saved. Please, try again.'));
             }
         }
-        $customers = $this->Visits->Customers->find('list', ['limit' => 200]);
-        $zones = $this->Visits->Zones->find('list', ['limit' => 200]);
+        $customers = $this->Visits->Customers->find('list');
+        $zones = $this->Visits->Zones->find('list');
         $this->set(compact('visit', 'customers', 'zones'));
         $this->set('_serialize', ['visit']);
     }
@@ -116,36 +117,6 @@ class VisitsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    /**
-     * Index method
-     *
-     * @return \Cake\Network\Response|null
-     */
-    public function hot()
-    {
-        $query = $this->Visits
-            ->find('all', ['contain' => ['Zones']])
-            // ->select(['Zones.id'])
-            ->group('Zones.name');
-        $query->select([
-            'visits' => $query->func()->count('*'),
-            'Zones.name',
-            'trigger_time']);
-
-        $this->set('visits', $this->paginate($query));
-        $this->set('_serialize', ['visits']);
-    }
-
-    /**
-     * Home method
-     *
-     * @return \Cake\Network\Response|null
-     */
-    public function home()
-    {
-        return null;
-    }
-
     public function permanency()
     {
         $query = $this->Visits
@@ -156,5 +127,43 @@ class VisitsController extends AppController
         $query->group('Zones.id');
 
         $this->set('permanency', $query) ;
+    }
+
+    public function permanencyByStore()
+    {
+        // $permanency_zones = $this->Visits
+        //     ->find('all', ['contain' => ['Zones']]);
+        // $permanency_zones->select([
+        //     'id' => 'Zones.id',
+        //     'name' => 'Zones.name', 
+        //     'permanency' => $permanency_zones->func()->avg('TIMESTAMPDIFF(SECOND, trigger_time, leave_time)')]);
+        // $permanency_zones->group('Zones.id');
+
+        // $query = $this->Visits
+        //     ->find('all', ['contain' => ['Zones']]);
+        // $query->select([
+        //     'Zones.store_id',
+        //     'permanency' => $permanency_zones->func()->avg('permanency')
+        // ]);
+        // $query->where(['id' => $permanency_zones]);
+        // $query->group('Zones.store_id');
+
+        $connection = ConnectionManager::get('default');
+        $permanency_store = $connection->execute("
+            SELECT
+                FORMAT(AVG(permanency), 0) AS permanency,
+                store
+            FROM (
+                SELECT 
+                    AVG(TIMESTAMPDIFF(SECOND, trigger_time, leave_time)) as permanency,
+                    zones.name as zone,
+                    stores.name as store
+                FROM zones, visits, stores
+                WHERE stores.id = zones.store_id
+                AND visits.zone_id = zones.id
+                GROUP BY zones.id) AS permanency
+            GROUP BY store")
+            ->fetchAll('assoc');
+        $this->set('permanency_store', $permanency_store);
     }
 }

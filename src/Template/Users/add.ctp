@@ -1,6 +1,6 @@
 
 <div class="users form white-bg z-depth-3">
-    <div class="card-panel grey darken-4">
+    <div class="card-panel  grey darken-4">
         <h1><?= __('Add User') ?></h1>
     </div>
     <div class="wrapper">

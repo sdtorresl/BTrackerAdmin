@@ -33,9 +33,13 @@
 
 <div class="visits index white-bg z-depth-3">
     <div class="card-panel grey darken-4">
+        <a href="/stats" class="left">
+            <i class="material-icons back">keyboard_backspace</i>
+        </a>
         <h1><?= __('Visits') ?></h1>
     </div>
     <div class="wrapper">
+        <p><?= __('All visits of all zones of your stores') ?></p>
         
         <div class="chart-container col l8 m10 s12 offset-l2 offset-m1">
             <canvas id="canvas" height="80px" width="100px"></canvas>

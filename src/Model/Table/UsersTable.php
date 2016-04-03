@@ -31,7 +31,7 @@ class UsersTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->hasMany('Beacons', [
+        $this->hasMany('Stores', [
             'foreignKey' => 'user_id'
         ]);
     }

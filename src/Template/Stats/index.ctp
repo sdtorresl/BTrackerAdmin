@@ -24,9 +24,9 @@
 			</div>
 			<div class="col s12 m6 l4">
 				<div class="card-panel cyan darken-4 center-align">
-					<a href="visits/permanency" class="clean-link">
+					<a href="visits/permanency_by_store" class="clean-link">
 						<?= $this->Html->image('time.svg', ['alt' => 'Store time', 'class' => 'icon']) ?>
-						<div class="white-text"><?= __('Permanency tyme by the store') ?></div>
+						<div class="white-text"><?= __('Permanency tyme by stores') ?></div>
 					</a>
 				</div>
 			</div>

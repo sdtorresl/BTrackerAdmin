@@ -28,7 +28,10 @@
 </script>
 
 <div class="visits index white-bg z-depth-3">
-	<div class="card-panel black">
+	<div class="card-panel grey darken-4">
+		<a href="/stats" class="left">
+			<i class="material-icons back">keyboard_backspace</i>
+		</a>
 		<h1><?= __('Permanency by zone') ?></h1>
 	</div>
 	<div class="wrapper">

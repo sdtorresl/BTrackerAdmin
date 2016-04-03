@@ -41,8 +41,8 @@ class CustomersFixture extends TestFixture
         [
             'id' => 1,
             'mac' => 'Lorem ipsum dolor sit amet',
-            'created' => '2016-03-21 18:05:10',
-            'modified' => '2016-03-21 18:05:10'
+            'created' => '2016-04-03 19:14:55',
+            'modified' => '2016-04-03 19:14:55'
         ],
     ];
 }

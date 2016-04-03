@@ -1,8 +1,8 @@
 <div class="customers view white-bg z-depth-3">
+    <div class="card-panel grey darken-4">
+        <h1><?= h($customer->mac) ?></h1>
+    </div>
     <div class="wrapper">
-        <div class="card-panel orange accent-3">
-            <h1><?= h($customer->mac) ?></h1>
-        </div>
         <table class="vertical-table highlight bordered responsive-table">
                         <tr>
                 <th><?= __('Mac') ?></th>

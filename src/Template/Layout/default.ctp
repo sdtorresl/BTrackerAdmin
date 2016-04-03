@@ -140,11 +140,15 @@ $cakeDescription = 'BTracker Admin - ';
 
 					<ul class="right hide-on-med-and-down">
 						<li>
-							<?= $this->Html->link(__('Stats'), ['controller' => 'Stats', 'action' => 'index']) ?>
+							<a href="/stats"> Stats
+								<i class="material-icons right">trending_up</i>
+							</a>
+							<!-- <?= $this->Html->link(__('Stats'), ['controller' => 'Stats', 'action' => 'index']) ?> -->
 						</li>
 						<li>
 							<a class="dropdown-button" href="#!" data-activates="users1"><?= __('Users') ?>
 								<i class="material-icons right">arrow_drop_down</i>
+								<!-- <i class="material-icons left">perm_identity</i> -->
 							</a>
 						</li>
 						<li>

@@ -7,7 +7,7 @@
 		<div class="row">
 			<div class="col s12 m6 l4">
 				<div class="card-panel cyan darken-4 center-align">
-					<a href="visits" class="clean-link">
+					<a href="visits/entrance_rate" class="clean-link">
 						<!-- <i class="material-icons large">equalizer</i> -->
 						<?= $this->Html->image('rate_entrance.svg', ['alt' => 'Rate of entrance', 'class' => 'icon']) ?>
 						<div class="white-text"><?= __('See who went inside your store') ?></div>

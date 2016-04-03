@@ -1,9 +1,9 @@
 
 <div class="customers index white-bg z-depth-3">
+    <div class="card-panel black grey darken-4">
+        <h1><?= __('Customers') ?></h1>
+    </div>
     <div class="wrapper">
-        <div class="card-panel orange accent-3">
-            <h1><?= __('Customers') ?></h1>
-        </div>
         <table class="bordered responsive-table highlight" cellpadding="0" cellspacing="0">
             <thead>
                 <tr>

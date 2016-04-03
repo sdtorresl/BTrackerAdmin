@@ -74,6 +74,10 @@ class ProductsTable extends Table
             ->decimal('price')
             ->allowEmpty('price');
 
+        $validator
+            ->decimal('discount')
+            ->allowEmpty('discount');
+
         return $validator;
     }
 }

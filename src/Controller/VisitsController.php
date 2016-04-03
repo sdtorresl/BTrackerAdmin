@@ -131,23 +131,6 @@ class VisitsController extends AppController
 
     public function permanencyByStore()
     {
-        // $permanency_zones = $this->Visits
-        //     ->find('all', ['contain' => ['Zones']]);
-        // $permanency_zones->select([
-        //     'id' => 'Zones.id',
-        //     'name' => 'Zones.name', 
-        //     'permanency' => $permanency_zones->func()->avg('TIMESTAMPDIFF(SECOND, trigger_time, leave_time)')]);
-        // $permanency_zones->group('Zones.id');
-
-        // $query = $this->Visits
-        //     ->find('all', ['contain' => ['Zones']]);
-        // $query->select([
-        //     'Zones.store_id',
-        //     'permanency' => $permanency_zones->func()->avg('permanency')
-        // ]);
-        // $query->where(['id' => $permanency_zones]);
-        // $query->group('Zones.store_id');
-
         $connection = ConnectionManager::get('default');
         $permanency_store = $connection->execute("
             SELECT
@@ -165,5 +148,49 @@ class VisitsController extends AppController
             GROUP BY store")
             ->fetchAll('assoc');
         $this->set('permanency_store', $permanency_store);
+    }
+
+    public function zones()
+    {
+        $query = $this->Visits
+            ->find('all', ['contain' => ['Zones']]);
+        $query->select([
+            'name' => 'Zones.name', 
+            'visits' => $query->func()->count('*')]);
+        $query->group('Zones.id');
+        $query->order(['Zones.store_id', 'Zones.entrance' => 'DESC']);
+
+        $this->set('permanency', $query) ;
+    }
+
+    public function entranceRate()
+    {
+        $this->loadModel('Stores');
+        $stores = $this->Stores->find('all');
+
+        $connection = ConnectionManager::get('default');
+        $entrance_rate = $connection->execute("
+            SELECT SUM(visits) AS visits, 
+                entrance, 
+                zone,
+                store
+             FROM (
+                SELECT COUNT(*) AS visits, 
+                    v.zone_id,
+                    v.customer_id,
+                    z.entrance,
+                    z.name AS zone,
+                    s.name AS store,
+                    s.id AS store_id
+                FROM visits AS v
+                INNER JOIN zones AS z
+                ON z.id = v.zone_id
+                INNER JOIN stores AS s
+                ON s.id = z.store_id
+                GROUP BY z.id
+                ORDER BY s.name, z.entrance desc, z.name) AS visits_by_zone
+            GROUP BY store, entrance DESC")
+            ->fetchAll('assoc');
+        $this->set(compact('entrance_rate', 'stores'));
     }
 }

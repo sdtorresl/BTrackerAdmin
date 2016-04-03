@@ -40,5 +40,11 @@
             </ul>
             <!-- <p><?= $this->Paginator->counter() ?></p> -->
         </div>
+
+        <div class="fixed-action-btn" style="bottom: 25px; right: 25px;">
+            <a class="btn-floating btn-large orange" href="/zones/add" alt="Add promotion">
+                <i class="large material-icons">add</i>
+            </a>
+        </div>
     </div>
 </div>

@@ -64,5 +64,5 @@
             </table>
             <?php endif; ?>
         </div>
-        </div>
+    </div>
 </div>

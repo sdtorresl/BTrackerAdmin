@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property string $description
  * @property string $local_uri
  * @property float $price
+ * @property float $discount
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
  * @property \App\Model\Entity\Purchase[] $purchases

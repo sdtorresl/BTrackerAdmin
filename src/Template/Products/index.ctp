@@ -1,7 +1,9 @@
 
 <div class="products index white-bg z-depth-3">
-    <div class="wrapper">
+    <div class="card-panel black grey darken-4">
         <h1><?= __('Products') ?></h1>
+    </div>
+    <div class="wrapper">
         <table class="bordered responsive-table highlight" cellpadding="0" cellspacing="0">
             <thead>
                 <tr>

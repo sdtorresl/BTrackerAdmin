@@ -1,7 +1,9 @@
 
 <div class="visits form white-bg z-depth-3">
-    <div class="wrapper">
+    <div class="card-panel  grey darken-4">
         <h1><?= __('Edit Visit') ?></h1>
+    </div>
+    <div class="wrapper">
         <?= $this->Form->create($visit) ?>
         <?php
             echo $this->Form->input('trigger_time');

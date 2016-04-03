@@ -18,14 +18,6 @@ class VisitsController extends AppController
      */
     public function index()
     {
-        // All visits
-        $this->paginate = [
-            'contain' => ['Customers', 'Zones']
-        ];
-        $visits = $this->paginate($this->Visits);
-        $this->set(compact('visits'));
-        $this->set('_serialize', ['visits']);
-
         //Visits by zone 
         $query = $this->Visits
             ->find('all', ['contain' => ['Zones']])
@@ -142,5 +134,27 @@ class VisitsController extends AppController
 
         $this->set('visits', $this->paginate($query));
         $this->set('_serialize', ['visits']);
+    }
+
+    /**
+     * Home method
+     *
+     * @return \Cake\Network\Response|null
+     */
+    public function home()
+    {
+        return null;
+    }
+
+    public function permanency()
+    {
+        $query = $this->Visits
+            ->find('all', ['contain' => ['Zones']]);
+        $query->select([
+            'name' => 'Zones.name', 
+            'permanency' => $query->func()->avg('TIMESTAMPDIFF(SECOND, trigger_time, leave_time)')]);
+        $query->group('Zones.id');
+
+        $this->set('permanency', $query) ;
     }
 }

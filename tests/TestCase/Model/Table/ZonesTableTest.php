@@ -25,8 +25,9 @@ class ZonesTableTest extends TestCase
      */
     public $fixtures = [
         'app.zones',
-        'app.beacons',
+        'app.stores',
         'app.users',
+        'app.beacons',
         'app.visits',
         'app.customers',
         'app.purchases',
@@ -75,6 +76,16 @@ class ZonesTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

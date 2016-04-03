@@ -1,7 +1,8 @@
 <div class="products view white-bg z-depth-3">
     <div class="wrapper">
-        
-        <h1><?= h($product->name) ?></h1>
+        <div class="card-panel orange accent-3">
+            <h1><?= h($product->name) ?></h1>
+        </div>
         <table class="vertical-table highlight bordered responsive-table">
                         <tr>
                 <th><?= __('Name') ?></th>
@@ -94,6 +95,8 @@
                             <th><?= __('Id') ?></th>
                             <th><?= __('Name') ?></th>
                             <th><?= __('Description') ?></th>
+                            <th><?= __('Store Id') ?></th>
+                            <th><?= __('Beacon Id') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($product->zones as $zones): ?>
@@ -101,6 +104,8 @@
                     <td><?= h($zones->id) ?></td>
                     <td><?= h($zones->name) ?></td>
                     <td><?= h($zones->description) ?></td>
+                    <td><?= h($zones->store_id) ?></td>
+                    <td><?= h($zones->beacon_id) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['controller' => 'Zones', 'action' => 'view', $zones->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['controller' => 'Zones', 'action' => 'edit', $zones->id]) ?>

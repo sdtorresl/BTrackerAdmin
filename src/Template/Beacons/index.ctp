@@ -1,7 +1,9 @@
 
 <div class="beacons index white-bg z-depth-3">
-    <div class="wrapper">
+    <div class="card-panel black grey darken-4">
         <h1><?= __('Beacons') ?></h1>
+    </div>
+    <div class="wrapper">
         <table class="bordered responsive-table highlight" cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
@@ -10,8 +12,6 @@
                     <th><?= $this->Paginator->sort('major') ?></th>
                     <th><?= $this->Paginator->sort('minor') ?></th>
                     <th><?= $this->Paginator->sort('detection_range') ?></th>
-                    <th><?= $this->Paginator->sort('zone_id') ?></th>
-                    <th><?= $this->Paginator->sort('user_id') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -25,8 +25,6 @@
                         <td><?= $this->Number->format($beacon->major) ?></td>
                         <td><?= $this->Number->format($beacon->minor) ?></td>
                         <td><?= $this->Number->format($beacon->detection_range) ?></td>
-                        <td><?= $beacon->has('zone') ? $this->Html->link($beacon->zone->name, ['controller' => 'Zones', 'action' => 'view', $beacon->zone->id]) : '' ?></td>
-                        <td><?= $beacon->has('user') ? $this->Html->link($beacon->user->username, ['controller' => 'Users', 'action' => 'view', $beacon->user->id]) : '' ?></td>
                         <td><?= h($beacon->created) ?></td>
                         <td><?= h($beacon->modified) ?></td>
                         <td class="actions">

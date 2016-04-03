@@ -1,7 +1,9 @@
 
 <div class="users form white-bg z-depth-3">
-    <div class="wrapper">
+    <div class="card-panel  grey darken-4">
         <h1><?= __('Edit User') ?></h1>
+    </div>
+    <div class="wrapper">
         <?= $this->Form->create($user) ?>
         <?php
             echo $this->Form->input('username');

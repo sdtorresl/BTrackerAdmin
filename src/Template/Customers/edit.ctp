@@ -1,7 +1,9 @@
 
 <div class="customers form white-bg z-depth-3">
     <div class="wrapper">
-        <h1><?= __('Edit Customer') ?></h1>
+        <div class="card-panel orange accent-3">
+            <h1><?= __('Edit Customer') ?></h1>
+        </div>
         <?= $this->Form->create($customer) ?>
         <?php
             echo $this->Form->input('mac');

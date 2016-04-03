@@ -1,11 +1,20 @@
 <div class="zones view white-bg z-depth-3">
     <div class="wrapper">
-        
-        <h1><?= h($zone->name) ?></h1>
+        <div class="card-panel orange accent-3">
+            <h1><?= h($zone->name) ?></h1>
+        </div>
         <table class="vertical-table highlight bordered responsive-table">
                         <tr>
                 <th><?= __('Name') ?></th>
                 <td><?= h($zone->name) ?></td>
+            </tr>
+                        <tr>
+                <th><?= __('Store') ?></th>
+                <td><?= $zone->has('store') ? $this->Html->link($zone->store->name, ['controller' => 'Stores', 'action' => 'view', $zone->store->id]) : '' ?></td>
+            </tr>
+                        <tr>
+                <th><?= __('Beacon') ?></th>
+                <td><?= $zone->has('beacon') ? $this->Html->link($zone->beacon->uuid, ['controller' => 'Beacons', 'action' => 'view', $zone->beacon->id]) : '' ?></td>
             </tr>
                                     <tr>
                 <th><?= __('Id') ?></th>
@@ -17,43 +26,6 @@
             <?= $this->Text->autoParagraph(h($zone->description)); ?>
         </div>
                     <div class="related">
-            <h4><?= __('Related Beacons') ?></h4>
-            <?php if (!empty($zone->beacons)): ?>
-            <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">
-                <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Uuid') ?></th>
-                            <th><?= __('Major') ?></th>
-                            <th><?= __('Minor') ?></th>
-                            <th><?= __('Detection Range') ?></th>
-                            <th><?= __('Zone Id') ?></th>
-                            <th><?= __('User Id') ?></th>
-                            <th><?= __('Created') ?></th>
-                            <th><?= __('Modified') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                </tr>
-                <?php foreach ($zone->beacons as $beacons): ?>
-                <tr>
-                    <td><?= h($beacons->id) ?></td>
-                    <td><?= h($beacons->uuid) ?></td>
-                    <td><?= h($beacons->major) ?></td>
-                    <td><?= h($beacons->minor) ?></td>
-                    <td><?= h($beacons->detection_range) ?></td>
-                    <td><?= h($beacons->zone_id) ?></td>
-                    <td><?= h($beacons->user_id) ?></td>
-                    <td><?= h($beacons->created) ?></td>
-                    <td><?= h($beacons->modified) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['controller' => 'Beacons', 'action' => 'view', $beacons->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['controller' => 'Beacons', 'action' => 'edit', $beacons->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Beacons', 'action' => 'delete', $beacons->id], ['confirm' => __('Are you sure you want to delete # {0}?', $beacons->id)]) ?>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </table>
-            <?php endif; ?>
-        </div>
-            <div class="related">
             <h4><?= __('Related Visits') ?></h4>
             <?php if (!empty($zone->visits)): ?>
             <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">

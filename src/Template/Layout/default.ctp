@@ -13,7 +13,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'BTracker Admin - ';
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,6 +58,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 					<li><?= $this->Html->link(__('Add'), ['controller' => 'Beacons', 'action' => 'add']) ?></li>
 				</ul>
 
+				<!-- Dropdown for stores -->
+				<ul class="dropdown-content" id="stores1">
+					<li><?= $this->Html->link(__('List'), ['controller' => 'Stores', 'action' => 'index']) ?></li>
+					<li><?= $this->Html->link(__('Add'), ['controller' => 'Stores', 'action' => 'add']) ?></li>
+				</ul>
+
 				<!-- Dropdown for zones -->
 				<ul class="dropdown-content" id="zones1">
 					<li><?= $this->Html->link(__('List'), ['controller' => 'Zones', 'action' => 'index']) ?></li>
@@ -88,6 +94,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 				<ul class="dropdown-content" id="beacons2">
 					<li><?= $this->Html->link(__('List'), ['controller' => 'Beacons', 'action' => 'index']) ?></li>
 					<li><?= $this->Html->link(__('Add'), ['controller' => 'Beacons', 'action' => 'add']) ?></li>
+				</ul>
+
+				<!-- Dropdown for stores -->
+				<ul class="dropdown-content" id="storess">
+					<li><?= $this->Html->link(__('List'), ['controller' => 'Stores', 'action' => 'index']) ?></li>
+					<li><?= $this->Html->link(__('Add'), ['controller' => 'Stores', 'action' => 'add']) ?></li>
 				</ul>
 
 				<!-- Dropdown for zones -->
@@ -129,19 +141,25 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 							</a>
 						</li>
 						<li>
+							<a class="dropdown-button" href="#!" data-activates="stores1"><?= __('Stores') ?>
+								<i class="material-icons right">arrow_drop_down</i>
+							</a>
+						</li>
+						<li>
 							<a class="dropdown-button" href="#!" data-activates="zones1"><?= __('Zones') ?>
 								<i class="material-icons right">arrow_drop_down</i>
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-button" href="#!" data-activates="products1"><?= __('Products') ?>
+							<a class="dropdown-button" href="#!" data-activates="products1"><?= __('Promotions') ?>
 								<i class="material-icons right">arrow_drop_down</i>
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-button" href="#!" data-activates="stats1"><?= __('Stats') ?>
+							<?= $this->Html->link(__('Stats'), ['controller' => 'Stats', 'action' => 'index']) ?>
+							<!-- <a class="dropdown-button" href="#!" data-activates="stats1"><?= __('Stats') ?>
 								<i class="material-icons right">arrow_drop_down</i>
-							</a>
+							</a> -->
 						</li>
 					</ul>
 
@@ -157,12 +175,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 							</a>
 						</li>
 						<li>
+							<a class="dropdown-button" href="#!" data-activates="stores2"><?= __('Stores') ?>
+								<i class="material-icons right">arrow_drop_down</i>
+							</a>
+						</li>
+						<li>
 							<a class="dropdown-button" href="#!" data-activates="zones2"><?= __('Zones') ?>
 								<i class="material-icons right">arrow_drop_down</i>
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-button" href="#!" data-activates="products2"><?= __('Products') ?>
+							<a class="dropdown-button" href="#!" data-activates="products2"><?= __('Promotions') ?>
 								<i class="material-icons right">arrow_drop_down</i>
 							</a>
 						</li>

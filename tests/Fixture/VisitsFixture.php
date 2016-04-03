@@ -46,8 +46,8 @@ class VisitsFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'trigger_time' => '2016-03-21 18:05:26',
-            'leave_time' => '2016-03-21 18:05:26',
+            'trigger_time' => '2016-03-30 06:04:33',
+            'leave_time' => '2016-03-30 06:04:33',
             'customer_id' => 1,
             'zone_id' => 1
         ],

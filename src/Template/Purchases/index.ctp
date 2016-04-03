@@ -1,7 +1,9 @@
 
 <div class="purchases index white-bg z-depth-3">
-    <div class="wrapper">
+    <div class="card-panel black grey darken-4">
         <h1><?= __('Purchases') ?></h1>
+    </div>
+    <div class="wrapper">
         <table class="bordered responsive-table highlight" cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
@@ -17,7 +19,7 @@
                 <tr>
                         <td><?= $this->Number->format($purchase->id) ?></td>
                         <td><?= $purchase->has('product') ? $this->Html->link($purchase->product->name, ['controller' => 'Products', 'action' => 'view', $purchase->product->id]) : '' ?></td>
-                        <td><?= $purchase->has('customer') ? $this->Html->link($purchase->customer->id, ['controller' => 'Customers', 'action' => 'view', $purchase->customer->id]) : '' ?></td>
+                        <td><?= $purchase->has('customer') ? $this->Html->link($purchase->customer->mac, ['controller' => 'Customers', 'action' => 'view', $purchase->customer->id]) : '' ?></td>
                         <td><?= h($purchase->date) ?></td>
                         <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $purchase->id]) ?>

@@ -10120,7 +10120,7 @@ main {
   margin-right: 0; }
 
 .wrapper {
-  padding: 5% 5%; }
+  padding: 2% 5%; }
 
 .brand-logo img {
   max-height: 40px;
@@ -10141,10 +10141,8 @@ h1, h2, h3, h4, h5 {
   color: #ff9800; }
 
 h1 {
-  background: #ff9800;
-  color: #212121;
-  padding: 10px;
-  margin-top: 0; }
+  color: white;
+  margin: 0; }
 
 form button {
   margin-top: 20px; }
@@ -10154,5 +10152,11 @@ form button {
 
 ul.pagination li.disabled {
   color: #ccc; }
+
+a.clean-link {
+  color: white; }
+
+.chart-container {
+  margin-top: 20px; }
 
 /*# sourceMappingURL=materialize.css.map */

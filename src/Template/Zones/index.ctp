@@ -1,12 +1,16 @@
 
 <div class="zones index white-bg z-depth-3">
-    <div class="wrapper">
+    <div class="card-panel black grey darken-4">
         <h1><?= __('Zones') ?></h1>
+    </div>
+    <div class="wrapper">
         <table class="bordered responsive-table highlight" cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('name') ?></th>
+                    <th><?= $this->Paginator->sort('store_id') ?></th>
+                    <th><?= $this->Paginator->sort('beacon_id') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -15,6 +19,8 @@
                 <tr>
                         <td><?= $this->Number->format($zone->id) ?></td>
                         <td><?= h($zone->name) ?></td>
+                        <td><?= $zone->has('store') ? $this->Html->link($zone->store->name, ['controller' => 'Stores', 'action' => 'view', $zone->store->id]) : '' ?></td>
+                        <td><?= $zone->has('beacon') ? $this->Html->link($zone->beacon->uuid, ['controller' => 'Beacons', 'action' => 'view', $zone->beacon->id]) : '' ?></td>
                         <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $zone->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $zone->id]) ?>

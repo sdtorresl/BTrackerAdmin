@@ -10,7 +10,8 @@ use Cake\Validation\Validator;
 /**
  * Zones Model
  *
- * @property \Cake\ORM\Association\HasMany $Beacons
+ * @property \Cake\ORM\Association\BelongsTo $Stores
+ * @property \Cake\ORM\Association\BelongsTo $Beacons
  * @property \Cake\ORM\Association\HasMany $Visits
  * @property \Cake\ORM\Association\BelongsToMany $Products
  */
@@ -31,8 +32,13 @@ class ZonesTable extends Table
         $this->displayField('name');
         $this->primaryKey('id');
 
-        $this->hasMany('Beacons', [
-            'foreignKey' => 'zone_id'
+        $this->belongsTo('Stores', [
+            'foreignKey' => 'store_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Beacons', [
+            'foreignKey' => 'beacon_id',
+            'joinType' => 'INNER'
         ]);
         $this->hasMany('Visits', [
             'foreignKey' => 'zone_id'
@@ -64,5 +70,19 @@ class ZonesTable extends Table
             ->allowEmpty('description');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['store_id'], 'Stores'));
+        $rules->add($rules->existsIn(['beacon_id'], 'Beacons'));
+        return $rules;
     }
 }

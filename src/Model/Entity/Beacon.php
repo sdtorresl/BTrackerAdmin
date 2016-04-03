@@ -11,12 +11,9 @@ use Cake\ORM\Entity;
  * @property int $major
  * @property int $minor
  * @property int $detection_range
- * @property int $zone_id
- * @property \App\Model\Entity\Zone $zone
- * @property int $user_id
- * @property \App\Model\Entity\User $user
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
+ * @property \App\Model\Entity\Zone[] $zones
  */
 class Beacon extends Entity
 {

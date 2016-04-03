@@ -35,7 +35,7 @@ main {
 }
 
 .wrapper {
-	padding: 5% 5%;
+	padding: 2% 5%;
 }
 
 .brand-logo{
@@ -69,10 +69,8 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-	background:$orange;
-	color: $primary-color;
-	padding: 10px;
-	margin-top: 0;
+	color: white;
+	margin: 0;
 }
 
 form {
@@ -87,4 +85,12 @@ form {
 
 ul.pagination li.disabled {
 	color: #ccc;
+}
+
+a.clean-link {
+	color: white;
+}
+
+.chart-container {
+	margin-top: 20px;
 }

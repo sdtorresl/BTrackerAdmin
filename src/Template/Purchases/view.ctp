@@ -1,7 +1,8 @@
 <div class="purchases view white-bg z-depth-3">
     <div class="wrapper">
-        
-        <h1><?= h($purchase->id) ?></h1>
+        <div class="card-panel orange accent-3">
+            <h1><?= h($purchase->id) ?></h1>
+        </div>
         <table class="vertical-table highlight bordered responsive-table">
                         <tr>
                 <th><?= __('Product') ?></th>
@@ -9,7 +10,7 @@
             </tr>
                         <tr>
                 <th><?= __('Customer') ?></th>
-                <td><?= $purchase->has('customer') ? $this->Html->link($purchase->customer->id, ['controller' => 'Customers', 'action' => 'view', $purchase->customer->id]) : '' ?></td>
+                <td><?= $purchase->has('customer') ? $this->Html->link($purchase->customer->mac, ['controller' => 'Customers', 'action' => 'view', $purchase->customer->id]) : '' ?></td>
             </tr>
                                     <tr>
                 <th><?= __('Id') ?></th>

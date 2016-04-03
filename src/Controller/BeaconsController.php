@@ -18,9 +18,6 @@ class BeaconsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Zones', 'Users']
-        ];
         $beacons = $this->paginate($this->Beacons);
 
         $this->set(compact('beacons'));
@@ -37,7 +34,7 @@ class BeaconsController extends AppController
     public function view($id = null)
     {
         $beacon = $this->Beacons->get($id, [
-            'contain' => ['Zones', 'Users']
+            'contain' => ['Zones']
         ]);
 
         $this->set('beacon', $beacon);
@@ -61,9 +58,7 @@ class BeaconsController extends AppController
                 $this->Flash->error(__('The beacon could not be saved. Please, try again.'));
             }
         }
-        $zones = $this->Beacons->Zones->find('list', ['limit' => 200]);
-        $users = $this->Beacons->Users->find('list', ['limit' => 200]);
-        $this->set(compact('beacon', 'zones', 'users'));
+        $this->set(compact('beacon'));
         $this->set('_serialize', ['beacon']);
     }
 
@@ -88,9 +83,7 @@ class BeaconsController extends AppController
                 $this->Flash->error(__('The beacon could not be saved. Please, try again.'));
             }
         }
-        $zones = $this->Beacons->Zones->find('list', ['limit' => 200]);
-        $users = $this->Beacons->Users->find('list', ['limit' => 200]);
-        $this->set(compact('beacon', 'zones', 'users'));
+        $this->set(compact('beacon'));
         $this->set('_serialize', ['beacon']);
     }
 

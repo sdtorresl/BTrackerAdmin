@@ -21,8 +21,9 @@ class PurchasesControllerTest extends IntegrationTestCase
         'app.customers',
         'app.visits',
         'app.zones',
-        'app.beacons',
+        'app.stores',
         'app.users',
+        'app.beacons',
         'app.products_zones',
         'app.customers_products'
     ];

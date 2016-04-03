@@ -1,7 +1,9 @@
 
 <div class="users index white-bg z-depth-3">
-    <div class="wrapper">
+    <div class="card-panel  grey darken-4">
         <h1><?= __('Users') ?></h1>
+    </div>
+    <div class="wrapper">
         <table class="bordered responsive-table highlight" cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
@@ -10,10 +12,10 @@
                     <th><?= $this->Paginator->sort('email') ?></th>
                     <th><?= $this->Paginator->sort('first_name') ?></th>
                     <th><?= $this->Paginator->sort('last_name') ?></th>
-                    <th><?= $this->Paginator->sort('password') ?></th>
+                    <!-- <th><?= $this->Paginator->sort('password') ?></th> -->
                     <th><?= $this->Paginator->sort('role') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
+                    <!-- <th><?= $this->Paginator->sort('created') ?></th> -->
+                    <!-- <th><?= $this->Paginator->sort('modified') ?></th> -->
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -25,10 +27,10 @@
                         <td><?= h($user->email) ?></td>
                         <td><?= h($user->first_name) ?></td>
                         <td><?= h($user->last_name) ?></td>
-                        <td><?= h($user->password) ?></td>
+                        <!-- <td><?= h($user->password) ?></td> -->
                         <td><?= h($user->role) ?></td>
-                        <td><?= h($user->created) ?></td>
-                        <td><?= h($user->modified) ?></td>
+                        <!-- <td><?= h($user->created) ?></td> -->
+                        <!-- <td><?= h($user->modified) ?></td> -->
                         <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>

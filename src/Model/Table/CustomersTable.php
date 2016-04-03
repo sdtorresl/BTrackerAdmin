@@ -28,7 +28,7 @@ class CustomersTable extends Table
         parent::initialize($config);
 
         $this->table('customers');
-        $this->displayField('id');
+        $this->displayField('mac');
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');

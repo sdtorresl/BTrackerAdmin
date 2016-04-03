@@ -1,7 +1,8 @@
 <div class="users view white-bg z-depth-3">
     <div class="wrapper">
-        
-        <h1><?= h($user->id) ?></h1>
+        <div class="card-panel orange accent-3">
+            <h1><?= h($user->username) ?></h1>
+        </div>
         <table class="vertical-table highlight bordered responsive-table">
                         <tr>
                 <th><?= __('Username') ?></th>
@@ -50,8 +51,6 @@
                             <th><?= __('Major') ?></th>
                             <th><?= __('Minor') ?></th>
                             <th><?= __('Detection Range') ?></th>
-                            <th><?= __('Zone Id') ?></th>
-                            <th><?= __('User Id') ?></th>
                             <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
@@ -63,8 +62,6 @@
                     <td><?= h($beacons->major) ?></td>
                     <td><?= h($beacons->minor) ?></td>
                     <td><?= h($beacons->detection_range) ?></td>
-                    <td><?= h($beacons->zone_id) ?></td>
-                    <td><?= h($beacons->user_id) ?></td>
                     <td><?= h($beacons->created) ?></td>
                     <td><?= h($beacons->modified) ?></td>
                     <td class="actions">

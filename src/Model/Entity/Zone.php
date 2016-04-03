@@ -9,7 +9,10 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property string $description
- * @property \App\Model\Entity\Beacon[] $beacons
+ * @property int $store_id
+ * @property \App\Model\Entity\Store $store
+ * @property int $beacon_id
+ * @property \App\Model\Entity\Beacon $beacon
  * @property \App\Model\Entity\Visit[] $visits
  * @property \App\Model\Entity\Product[] $products
  */

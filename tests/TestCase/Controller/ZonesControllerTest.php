@@ -17,8 +17,9 @@ class ZonesControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.zones',
-        'app.beacons',
+        'app.stores',
         'app.users',
+        'app.beacons',
         'app.visits',
         'app.customers',
         'app.purchases',

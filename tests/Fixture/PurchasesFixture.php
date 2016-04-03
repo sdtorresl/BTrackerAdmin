@@ -47,7 +47,7 @@ class PurchasesFixture extends TestFixture
             'id' => 1,
             'product_id' => 1,
             'customer_id' => 1,
-            'date' => '2016-03-21 15:15:14'
+            'date' => '2016-03-30 06:03:24'
         ],
     ];
 }

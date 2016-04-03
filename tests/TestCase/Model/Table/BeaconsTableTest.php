@@ -26,13 +26,14 @@ class BeaconsTableTest extends TestCase
     public $fixtures = [
         'app.beacons',
         'app.zones',
+        'app.stores',
+        'app.users',
         'app.visits',
         'app.customers',
         'app.purchases',
         'app.products',
         'app.customers_products',
-        'app.products_zones',
-        'app.users'
+        'app.products_zones'
     ];
 
     /**
@@ -75,16 +76,6 @@ class BeaconsTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

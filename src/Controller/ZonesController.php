@@ -18,6 +18,9 @@ class ZonesController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Stores', 'Beacons']
+        ];
         $zones = $this->paginate($this->Zones);
 
         $this->set(compact('zones'));
@@ -34,7 +37,7 @@ class ZonesController extends AppController
     public function view($id = null)
     {
         $zone = $this->Zones->get($id, [
-            'contain' => ['Products', 'Beacons', 'Visits']
+            'contain' => ['Stores', 'Beacons', 'Products', 'Visits']
         ]);
 
         $this->set('zone', $zone);
@@ -58,8 +61,10 @@ class ZonesController extends AppController
                 $this->Flash->error(__('The zone could not be saved. Please, try again.'));
             }
         }
+        $stores = $this->Zones->Stores->find('list', ['limit' => 200]);
+        $beacons = $this->Zones->Beacons->find('list', ['limit' => 200]);
         $products = $this->Zones->Products->find('list', ['limit' => 200]);
-        $this->set(compact('zone', 'products'));
+        $this->set(compact('zone', 'stores', 'beacons', 'products'));
         $this->set('_serialize', ['zone']);
     }
 
@@ -84,8 +89,10 @@ class ZonesController extends AppController
                 $this->Flash->error(__('The zone could not be saved. Please, try again.'));
             }
         }
+        $stores = $this->Zones->Stores->find('list', ['limit' => 200]);
+        $beacons = $this->Zones->Beacons->find('list', ['limit' => 200]);
         $products = $this->Zones->Products->find('list', ['limit' => 200]);
-        $this->set(compact('zone', 'products'));
+        $this->set(compact('zone', 'stores', 'beacons', 'products'));
         $this->set('_serialize', ['zone']);
     }
 

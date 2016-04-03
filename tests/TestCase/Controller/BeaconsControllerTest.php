@@ -18,13 +18,14 @@ class BeaconsControllerTest extends IntegrationTestCase
     public $fixtures = [
         'app.beacons',
         'app.zones',
+        'app.stores',
+        'app.users',
         'app.visits',
         'app.customers',
         'app.purchases',
         'app.products',
         'app.customers_products',
-        'app.products_zones',
-        'app.users'
+        'app.products_zones'
     ];
 
     /**

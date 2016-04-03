@@ -32,10 +32,10 @@
 </script>
 
 <div class="visits index white-bg z-depth-3">
+    <div class="card-panel grey darken-4">
+        <h1><?= __('Visits') ?></h1>
+    </div>
     <div class="wrapper">
-        <div class="card-panel orange accent-3">
-            <h1><?= __('Visits') ?></h1>
-        </div>
         
         <div class="chart-container col l8 m10 s12 offset-l2 offset-m1">
             <canvas id="canvas" height="80px" width="100px"></canvas>

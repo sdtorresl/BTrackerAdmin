@@ -69,6 +69,10 @@ class ZonesTable extends Table
         $validator
             ->allowEmpty('description');
 
+        $validator
+            ->boolean('entrance')
+            ->allowEmpty('entrance');
+
         return $validator;
     }
 

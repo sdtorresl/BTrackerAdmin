@@ -47,8 +47,8 @@ class BeaconsFixture extends TestFixture
             'major' => 1,
             'minor' => 1,
             'detection_range' => 1,
-            'created' => '2016-04-02 16:43:50',
-            'modified' => '2016-04-02 16:43:50'
+            'created' => '2016-04-03 01:11:00',
+            'modified' => '2016-04-03 01:11:00'
         ],
     ];
 }

@@ -1,6 +1,6 @@
 <div class="visits view white-bg z-depth-3">
     <div class="wrapper">
-        <div class="card-panel orange accent-3">
+        <div class="card-panel grey darken-4">
             <h1><?= h($visit->id) ?></h1>
         </div>
         <table class="vertical-table highlight bordered responsive-table">

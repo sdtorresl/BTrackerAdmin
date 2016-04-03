@@ -1,9 +1,8 @@
 <div class="visits index white-bg z-depth-3">
+	<div class="card-panel grey darken-4">
+		<h1><?= __('Stats') ?></h1>
+	</div>
 	<div class="wrapper">
-		<div class="card-panel orange accent-3">
-			<h1><?= __('Stats') ?></h1>
-		</div>
-
 		<div class="row">
 			<div class="col s12 m6 l4">
 				<div class="card-panel indigo accent-3">

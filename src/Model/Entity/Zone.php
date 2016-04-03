@@ -13,6 +13,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Store $store
  * @property int $beacon_id
  * @property \App\Model\Entity\Beacon $beacon
+ * @property bool $entrance
  * @property \App\Model\Entity\Visit[] $visits
  * @property \App\Model\Entity\Product[] $products
  */

@@ -10105,7 +10105,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background: #3678C6; }
+  background: #e8eaf6; }
 
 .home {
   background-image: url(../img/background_blur.png);
@@ -10158,5 +10158,9 @@ a.clean-link {
 
 .chart-container {
   margin-top: 20px; }
+
+.stats .icon {
+  height: 90px;
+  widows: 90px; }
 
 /*# sourceMappingURL=materialize.css.map */

@@ -81,7 +81,11 @@ $cakeDescription = 'BTracker Admin - ';
 					<li><?= $this->Html->link(__('Visits'), ['controller' => 'Visits', 'action' => 'index']) ?></li>
 					<li><?= $this->Html->link(__('Purchases'), ['controller' => 'Purchases', 'action' => 'index']) ?></li>
 					<li><?= $this->Html->link(__('Customers'), ['controller' => 'Customers', 'action' => 'index']) ?></li>
+				</ul>
 
+				<!-- Dropdown for user action -->
+				<ul class="dropdown-content" id="user_action">
+					<li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
 				</ul>
 
 				<!-- Dropdown for users -->
@@ -122,6 +126,11 @@ $cakeDescription = 'BTracker Admin - ';
 
 				</ul>
 
+				<!-- Dropdown for user action -->
+				<ul class="dropdown-content" id="user_action_mobile">
+					<li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
+				</ul>
+
 				<div class="nav-wrapper">
 					<div class="brand-logo">
 						<?= $this->Html->image('logo.png'); ?>
@@ -130,6 +139,9 @@ $cakeDescription = 'BTracker Admin - ';
 					<a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 
 					<ul class="right hide-on-med-and-down">
+						<li>
+							<?= $this->Html->link(__('Stats'), ['controller' => 'Stats', 'action' => 'index']) ?>
+						</li>
 						<li>
 							<a class="dropdown-button" href="#!" data-activates="users1"><?= __('Users') ?>
 								<i class="material-icons right">arrow_drop_down</i>
@@ -156,14 +168,17 @@ $cakeDescription = 'BTracker Admin - ';
 							</a>
 						</li>
 						<li>
-							<?= $this->Html->link(__('Stats'), ['controller' => 'Stats', 'action' => 'index']) ?>
-							<!-- <a class="dropdown-button" href="#!" data-activates="stats1"><?= __('Stats') ?>
-								<i class="material-icons right">arrow_drop_down</i>
-							</a> -->
+							<a class="dropdown-button grey darken-2" href="#!" data-activates="user_action"><?= $userData['first_name'] . ' ' . $userData['last_name'] ?>
+								<i class="material-icons left">account_circle</i>
+								<!-- <i class="material-icons right">arrow_drop_down</i> -->
+							</a>
 						</li>
 					</ul>
 
 					<ul class="side-nav" id="mobile-menu">
+						<li>
+							<?= $this->Html->link(__('Stats'), ['controller' => 'Stats', 'action' => 'index']) ?>
+						</li>
 						<li>
 							<a class="dropdown-button" href="#!" data-activates="users2"><?= __('Users') ?>
 								<i class="material-icons right">arrow_drop_down</i>
@@ -190,8 +205,8 @@ $cakeDescription = 'BTracker Admin - ';
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-button" href="#!" data-activates="stats2"><?= __('Stats') ?>
-								<i class="material-icons right">arrow_drop_down</i>
+							<a class="dropdown-button blue" href="#!" data-activates="user_action_mobile"><?= $userData['first_name'] . ' ' . $userData['last_name'] ?>
+								<i class="material-icons left">account_circle</i>
 							</a>
 						</li>
 					</ul>

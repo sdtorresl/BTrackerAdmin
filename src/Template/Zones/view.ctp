@@ -1,8 +1,8 @@
 <div class="zones view white-bg z-depth-3">
+    <div class="card-panel grey darken-4">
+        <h1><?= h($zone->name) ?></h1>
+    </div>
     <div class="wrapper">
-        <div class="card-panel orange accent-3">
-            <h1><?= h($zone->name) ?></h1>
-        </div>
         <table class="vertical-table highlight bordered responsive-table">
                         <tr>
                 <th><?= __('Name') ?></th>
@@ -20,7 +20,11 @@
                 <th><?= __('Id') ?></th>
                 <td><?= $this->Number->format($zone->id) ?></td>
             </tr>
-                        </table>
+                                <tr>
+                <th><?= __('Entrance') ?></th>
+                <td><?= $zone->entrance ? __('Yes') : __('No'); ?></td>
+            </tr>
+                </table>
                 <div>
             <h4><?= __('Description') ?></h4>
             <?= $this->Text->autoParagraph(h($zone->description)); ?>

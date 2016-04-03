@@ -18,13 +18,14 @@ class UsersControllerTest extends IntegrationTestCase
     public $fixtures = [
         'app.users',
         'app.beacons',
-        'app.regions',
+        'app.zones',
+        'app.stores',
         'app.visits',
         'app.customers',
         'app.purchases',
         'app.products',
         'app.customers_products',
-        'app.regions_products'
+        'app.products_zones'
     ];
 
     /**

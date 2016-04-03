@@ -3,11 +3,13 @@ $(document).ready(function() {
 	$(".button-collapse").sideNav();
 	$('select').material_select();
 	$('ul.tabs').tabs();
-	$('.col .card-panel').hover(
+	$('.stats .wrapper .card-panel').hover(
 		function() {
-			$(this).css("opacity", "0.7");
+			$(this).removeClass("z-depth-3 cyan");
+			$(this).addClass("z-depth-3 teal");
 		}, function() {
-			$(this).css("opacity", "1");
+			$(this).addClass("z-depth-3 cyan");
+			$(this).removeClass("z-depth-3 teal");
 		}
 	);
 });

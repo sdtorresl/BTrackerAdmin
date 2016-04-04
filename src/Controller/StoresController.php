@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Datasource\ConnectionManager;
 
 /**
  * Stores Controller
@@ -109,5 +110,38 @@ class StoresController extends AppController
             $this->Flash->error(__('The store could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * View method
+     *
+     * @param string|null $id Store id.
+     * @return \Cake\Network\Response|null
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function visits()
+    {
+        $connection = ConnectionManager::get('default');
+        $stores = $connection->execute("
+            SELECT 
+                SUM(visits) AS visits,
+                store
+            FROM
+                (SELECT 
+                    COUNT(*) AS visits, 
+                    z.name AS zone,
+                    s.name AS store
+                FROM visits as v
+                INNER JOIN zones as z
+                ON z.id = v.zone_id
+                INNER JOIN stores as s
+                ON z.store_id = s.id
+                GROUP BY v.zone_id
+                ORDER BY s.name) AS visits_store
+            GROUP BY store")
+            ->fetchAll('assoc');
+
+        $this->set(compact('stores'));
+        $this->set('_serialize', ['store']);
     }
 }

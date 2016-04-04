@@ -1706,4 +1706,25 @@ a.clean-link {
   margin-right: 1rem;
   color: white; }
 
+thead {
+  text-transform: uppercase; }
+  thead th {
+    font-weight: normal;
+    background: #fafafa;
+    border: none;
+    color: #ff9800; }
+    thead th a {
+      color: #ff9800; }
+
+.stores .title {
+  text-transform: uppercase;
+  color: white;
+  font-size: 1.5rem; }
+.stores .counter {
+  text-align: center;
+  font-size: 4rem;
+  color: white; }
+.stores .counter-title {
+  font-size: 1.2rem; }
+
 /*# sourceMappingURL=custom.css.map */

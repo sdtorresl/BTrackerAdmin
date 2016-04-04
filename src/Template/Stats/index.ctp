@@ -40,7 +40,7 @@
 			</div>
 			<div class="col s12 m6 l4">
 				<div class="card-panel cyan darken-4 center-align">
-					<a href="stores" class="clean-link">
+					<a href="stores/visits" class="clean-link">
 						<?= $this->Html->image('store.svg', ['alt' => 'Visits by store', 'class' => 'icon']) ?>
 						<div class="white-text"><?= __('Watch visits by store') ?></div>
 					</a>

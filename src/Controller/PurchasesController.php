@@ -112,4 +112,16 @@ class PurchasesController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    public function zone()
+    {
+        $purchase = $this->Purchases->find('all', [
+            'contain' => ['Products', 'Customers']
+        ]);
+
+        // $purchase->
+
+        $this->set('purchase', $purchase);
+        $this->set('_serialize', ['purchase']);
+    }
 }

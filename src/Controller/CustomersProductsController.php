@@ -18,10 +18,17 @@ class CustomersProductsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Customers', 'Products']
-        ];
-        $customersProducts = $this->paginate($this->CustomersProducts);
+        $query = $this->CustomersProducts
+            ->find('all', ['contain' => ['Customers', 'Products']]);
+
+        $query->select([
+            'count' => $query->func()->count('*'),
+            'product_id',
+            'product' => 'Products.name']);
+        $query->group('product_id');
+        $query->order(['count' => 'DESC']);
+
+        $customersProducts = $this->paginate($query);
 
         $this->set(compact('customersProducts'));
         $this->set('_serialize', ['customersProducts']);

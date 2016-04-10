@@ -8,7 +8,7 @@
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('uuid') ?></th>
+                    <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('major') ?></th>
                     <th><?= $this->Paginator->sort('minor') ?></th>
                     <th><?= $this->Paginator->sort('detection_range') ?></th>
@@ -21,7 +21,7 @@
                 <?php foreach ($beacons as $beacon): ?>
                 <tr>
                         <td><?= $this->Number->format($beacon->id) ?></td>
-                        <td><?= h($beacon->uuid) ?></td>
+                        <td><?= h($beacon->name) ?></td>
                         <td><?= $this->Number->format($beacon->major) ?></td>
                         <td><?= $this->Number->format($beacon->minor) ?></td>
                         <td><?= $this->Number->format($beacon->detection_range) ?></td>
@@ -46,7 +46,7 @@
         </div>
 
         <div class="fixed-action-btn" style="bottom: 25px; right: 25px;">
-            <a class="btn-floating btn-large orange" href="/beacons/add" alt="Add promotion">
+            <a class="btn-floating btn-large orange" href="/beacons/add" alt="Add beacon">
                 <i class="large material-icons">add</i>
             </a>
         </div>

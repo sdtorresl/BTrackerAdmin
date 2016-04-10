@@ -8,6 +8,10 @@
                 <th><?= __('Uuid') ?></th>
                 <td><?= h($beacon->uuid) ?></td>
             </tr>
+                        <tr>
+                <th><?= __('Name') ?></th>
+                <td><?= h($beacon->name) ?></td>
+            </tr>
                                     <tr>
                 <th><?= __('Id') ?></th>
                 <td><?= $this->Number->format($beacon->id) ?></td>
@@ -64,5 +68,5 @@
             </table>
             <?php endif; ?>
         </div>
-    </div>
+        </div>
 </div>

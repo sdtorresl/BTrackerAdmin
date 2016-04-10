@@ -1,4 +1,4 @@
-
+<?= json_encode($purchase) ?>
 <div class="purchases index white-bg z-depth-3">
 	<div class="card-panel grey darken-4">
 		<a href="/stats" class="left">

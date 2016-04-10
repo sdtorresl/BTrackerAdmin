@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $uuid
  * @property int $major
+ * @property string $name
  * @property int $minor
  * @property int $detection_range
  * @property \Cake\I18n\Time $created

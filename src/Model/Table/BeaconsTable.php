@@ -26,7 +26,7 @@ class BeaconsTable extends Table
         parent::initialize($config);
 
         $this->table('beacons');
-        $this->displayField('uuid');
+        $this->displayField('name');
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -58,6 +58,10 @@ class BeaconsTable extends Table
             ->notEmpty('major');
 
         $validator
+            ->allowEmpty('name')
+            ->add('name', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
+
+        $validator
             ->integer('minor')
             ->requirePresence('minor', 'create')
             ->notEmpty('minor');
@@ -68,5 +72,18 @@ class BeaconsTable extends Table
             ->notEmpty('detection_range');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->isUnique(['name']));
+        return $rules;
     }
 }

@@ -167,7 +167,7 @@ $cakeDescription = 'BTracker Admin - ';
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-button" href="#!" data-activates="products1"><?= __('Promotions') ?>
+							<a class="dropdown-button" href="#!" data-activates="products1"><?= __('Offers') ?>
 								<i class="material-icons right">arrow_drop_down</i>
 							</a>
 						</li>
@@ -204,7 +204,7 @@ $cakeDescription = 'BTracker Admin - ';
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-button" href="#!" data-activates="products2"><?= __('Promotions') ?>
+							<a class="dropdown-button" href="#!" data-activates="products2"><?= __('Offers') ?>
 								<i class="material-icons right">arrow_drop_down</i>
 							</a>
 						</li>

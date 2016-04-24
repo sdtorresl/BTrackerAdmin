@@ -20,9 +20,21 @@
                 <th><?= __('Id') ?></th>
                 <td><?= $this->Number->format($zone->id) ?></td>
             </tr>
-                                <tr>
+                            <tr>
+                <th><?= __('Created') ?></th>
+                <td><?= h($zone->created) ?></td>
+            </tr>
+                <tr>
+                <th><?= __('Modified') ?></th>
+                <td><?= h($zone->modified) ?></td>
+            </tr>
+                            <tr>
                 <th><?= __('Entrance') ?></th>
                 <td><?= $zone->entrance ? __('Yes') : __('No'); ?></td>
+            </tr>
+                <tr>
+                <th><?= __('Status') ?></th>
+                <td><?= $zone->status ? __('Yes') : __('No'); ?></td>
             </tr>
                 </table>
                 <div>
@@ -39,6 +51,7 @@
                             <th><?= __('Leave Time') ?></th>
                             <th><?= __('Customer Id') ?></th>
                             <th><?= __('Zone Id') ?></th>
+                            <th><?= __('Viewed') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($zone->visits as $visits): ?>
@@ -48,6 +61,7 @@
                     <td><?= h($visits->leave_time) ?></td>
                     <td><?= h($visits->customer_id) ?></td>
                     <td><?= h($visits->zone_id) ?></td>
+                    <td><?= h($visits->viewed) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['controller' => 'Visits', 'action' => 'view', $visits->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['controller' => 'Visits', 'action' => 'edit', $visits->id]) ?>
@@ -68,8 +82,11 @@
                             <th><?= __('Description') ?></th>
                             <th><?= __('Local Uri') ?></th>
                             <th><?= __('Price') ?></th>
+                            <th><?= __('Discount') ?></th>
                             <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
+                            <th><?= __('Terms') ?></th>
+                            <th><?= __('Status') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($zone->products as $products): ?>
@@ -79,8 +96,11 @@
                     <td><?= h($products->description) ?></td>
                     <td><?= h($products->local_uri) ?></td>
                     <td><?= h($products->price) ?></td>
+                    <td><?= h($products->discount) ?></td>
                     <td><?= h($products->created) ?></td>
                     <td><?= h($products->modified) ?></td>
+                    <td><?= h($products->terms) ?></td>
+                    <td><?= h($products->status) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['controller' => 'Products', 'action' => 'view', $products->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['controller' => 'Products', 'action' => 'edit', $products->id]) ?>

@@ -32,10 +32,10 @@
 		<a href="/stats" class="left">
 			<i class="material-icons back">keyboard_backspace</i>
 		</a>
-		<h1><?= __('Visits by zone') ?></h1>
+		<h1><?= __('Permanency by zone') ?></h1>
 	</div>
 	<div class="wrapper">
-		<p><?= __('Analize the visits of all your zones') ?></p>
+		<p><?= __('Analize the permanency of your customers by zone (seconds)') ?></p>
 		
 		<div class="chart-container col l8 m10 s12 offset-l2 offset-m1">
 			<canvas id="canvas" height="80px" width="100px"></canvas>

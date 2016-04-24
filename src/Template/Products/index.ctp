@@ -1,7 +1,7 @@
 
 <div class="products index white-bg z-depth-3">
 	<div class="card-panel black grey darken-4">
-		<h1><?= __('Promotions') ?></h1>
+		<h1><?= __('Offers') ?></h1>
 	</div>
 	<div class="wrapper">
 		<table class="bordered responsive-table highlight" cellpadding="0" cellspacing="0">
@@ -9,7 +9,7 @@
 				<tr>
 					<th><?= $this->Paginator->sort('id') ?></th>
 					<th><?= $this->Paginator->sort('name') ?></th>
-					<!-- <th><?= $this->Paginator->sort('local_uri') ?></th> -->
+					<th><?= $this->Paginator->sort('status') ?></th>
 					<th><?= $this->Paginator->sort('normal price') ?></th>
 					<th><?= $this->Paginator->sort('discount') ?></th>
 					<th><?= $this->Paginator->sort('final price') ?></th>
@@ -23,7 +23,7 @@
 				<tr>
 						<td><?= $this->Number->format($product->id) ?></td>
 						<td><?= h($product->name) ?></td>
-						<!-- <td><?= h($product->local_uri) ?></td> -->
+						<td><?= h($product->status) ? __('Active') : __('Inactive') ?></td>
 						<td><?= $this->Number->currency($product->price, 0) ?></td>
 						<td><?= $this->Number->toPercentage($product->discount, 1) ?></td>
 						<td><?= $this->Number->currency($product->price - ($product->price * $product->discount/100), 0) ?></td>

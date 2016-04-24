@@ -78,6 +78,14 @@ class ProductsTable extends Table
             ->decimal('discount')
             ->allowEmpty('discount');
 
+        $validator
+            ->allowEmpty('terms');
+
+        $validator
+            ->boolean('status')
+            ->requirePresence('status', 'create')
+            ->notEmpty('status');
+
         return $validator;
     }
 }

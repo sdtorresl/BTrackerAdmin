@@ -1,9 +1,6 @@
 
 <div class="customers index white-bg z-depth-3">
     <div class="card-panel black grey darken-4">
-        <a href="/stats" class="left">
-            <i class="material-icons back">keyboard_backspace</i>
-        </a>
         <h1><?= __('Customers') ?></h1>
     </div>
     <div class="wrapper">

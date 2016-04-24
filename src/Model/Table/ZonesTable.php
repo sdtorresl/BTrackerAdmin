@@ -32,6 +32,8 @@ class ZonesTable extends Table
         $this->displayField('name');
         $this->primaryKey('id');
 
+        $this->addBehavior('Timestamp');
+
         $this->belongsTo('Stores', [
             'foreignKey' => 'store_id',
             'joinType' => 'INNER'
@@ -72,6 +74,10 @@ class ZonesTable extends Table
         $validator
             ->boolean('entrance')
             ->allowEmpty('entrance');
+
+        $validator
+            ->boolean('status')
+            ->allowEmpty('status');
 
         return $validator;
     }

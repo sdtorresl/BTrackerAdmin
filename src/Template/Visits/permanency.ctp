@@ -37,6 +37,19 @@
 	<div class="wrapper">
 		<p><?= __('Analize the permanency of your customers by zone (seconds)') ?></p>
 		
+		<div class="search">
+			<?php echo $this->Form->create('search'); ?>
+			<div class="row">
+				<div class="col l10">
+					<?php echo $this->Form->select('store', $stores); ?>
+				</div>
+				<div class="col l2 right">
+					<?php echo $this->Form->button(__('Search'), array('class' => 'waves-effect waves-light btn')); ?>
+				</div>
+			</div>
+			<?php echo $this->Form->end(); ?>
+		</div>
+
 		<div class="chart-container col l8 m10 s12 offset-l2 offset-m1">
 			<canvas id="canvas" height="80px" width="100px"></canvas>
 		</div>

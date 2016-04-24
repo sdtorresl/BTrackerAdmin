@@ -19,6 +19,12 @@ class StoresController extends AppController
      */
     public function index()
     {
+        if ($this->request->is('post')) {
+            $value = $this->request->data('search');
+            $this->Stores = $this->Stores->find()
+                ->where(['name LIKE' => '%'.$value.'%']);
+        }
+
         $this->paginate = [
             'contain' => ['Users']
         ];

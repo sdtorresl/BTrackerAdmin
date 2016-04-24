@@ -11,6 +11,8 @@
             echo $this->Form->input('local_uri');
             echo $this->Form->input('price');
             echo $this->Form->input('discount');
+            echo $this->Form->input('terms');
+            echo $this->Form->input('status');
             echo $this->Form->input('customers._ids', ['options' => $customers]);
             echo $this->Form->input('zones._ids', ['options' => $zones]);
         ?>

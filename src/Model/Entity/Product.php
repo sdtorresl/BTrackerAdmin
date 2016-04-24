@@ -14,6 +14,8 @@ use Cake\ORM\Entity;
  * @property float $discount
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
+ * @property string $terms
+ * @property bool $status
  * @property \App\Model\Entity\Purchase[] $purchases
  * @property \App\Model\Entity\Customer[] $customers
  * @property \App\Model\Entity\Zone[] $zones

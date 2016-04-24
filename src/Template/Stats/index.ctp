@@ -9,7 +9,7 @@
 				<div class="card-panel cyan darken-4 center-align">
 					<a href="visits/entrance_rate" class="clean-link">
 						<!-- <i class="material-icons large">equalizer</i> -->
-						<?= $this->Html->image('entrance_rate.svg', ['alt' => 'Rate of entrance', 'class' => 'icon']) ?>
+						<?= $this->Html->image('rate_entrance.svg', ['alt' => 'Rate of entrance', 'class' => 'icon']) ?>
 						<div class="white-text"><?= __('See who went inside your store') ?></div>
 					</a>
 				</div>
@@ -56,23 +56,23 @@
 			</div>
 			<div class="col s12 m6 l4">
 				<div class="card-panel cyan darken-4 center-align">
-					<a href="purchases/zone" class="clean-link">
-						<?= $this->Html->image('purchases_zone.svg', ['alt' => 'Zones', 'class' => 'icon']) ?>
+					<a href="purchases/byzone" class="clean-link">
+						<?= $this->Html->image('zones.svg', ['alt' => 'Zones', 'class' => 'icon']) ?>
 						<div class="white-text"><?= __('Purchases by zone') ?></div>
 					</a>
 				</div>
 			</div>
 			<div class="col s12 m6 l4">
 				<div class="card-panel cyan darken-4 center-align">
-					<a href="customers" class="clean-link">
-						<?= $this->Html->image('customers.svg', ['alt' => 'Customers', 'class' => 'icon']) ?>
-						<div class="white-text"><?= __('Customers') ?></div>
+					<a href="products/preferences" class="clean-link">
+						<?= $this->Html->image('customer_preferences.svg', ['alt' => 'Customer preferences', 'class' => 'icon']) ?>
+						<div class="white-text"><?= __('Customer preferences') ?></div>
 					</a>
 				</div>
 			</div>
 			<div class="col s12 m6 l4">
 				<div class="card-panel cyan darken-4 center-align">
-					<a href="customersProducts" class="clean-link">
+					<a href="visits" class="clean-link">
 						<?= $this->Html->image('prefered_products.svg', ['alt' => 'Products prefered', 'class' => 'icon']) ?>
 						<div class="white-text"><?= __('Products prefered') ?></div>
 					</a>

@@ -8,7 +8,14 @@
         <?php
             echo $this->Form->input('user_id', ['options' => $users]);
             echo $this->Form->input('name');
-            echo $this->Form->input('description');
+            echo $this->Form->input('description', ['class' => 'materialize-textarea']);
+            echo $this->Form->input('status', [
+                'options' => array(
+                    'empty' => 'Select',
+                    true => __('Active'), 
+                    false => __('Inactive')
+                )
+            ]);
         ?>
  
         <?= $this->Form->button(__('Submit'), ['class' => 'btn waves-effect waves-light right']) ?>

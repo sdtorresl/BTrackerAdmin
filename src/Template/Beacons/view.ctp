@@ -1,6 +1,6 @@
 <div class="beacons view white-bg z-depth-3">
     <div class="card-panel grey darken-4">
-        <h1><?= h($beacon->uuid) ?></h1>
+        <h1><?= h($beacon->name) ?></h1>
     </div>
     <div class="wrapper">
         <table class="vertical-table highlight bordered responsive-table">
@@ -68,5 +68,10 @@
             </table>
             <?php endif; ?>
         </div>
+        <div class="fixed-action-btn" style="bottom: 25px; right: 25px;">
+            <a class="btn-floating btn-large orange" href="/beacons/add" alt="Add beacon">
+                <i class="large material-icons">add</i>
+            </a>
         </div>
+    </div>
 </div>

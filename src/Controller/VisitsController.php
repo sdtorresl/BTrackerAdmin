@@ -119,14 +119,18 @@ class VisitsController extends AppController
 
     public function permanency()
     {
+        $this->loadModel('Stores');
+        $stores = $this->Stores->find('list', ['limit' => 200]);
+
         $query = $this->Visits
             ->find('all', ['contain' => ['Zones']]);
         $query->select([
             'name' => 'Zones.name', 
             'permanency' => $query->func()->avg('TIMESTAMPDIFF(SECOND, trigger_time, leave_time)')]);
         $query->group('Zones.id');
+        $permanency = $query;
 
-        $this->set('permanency', $query) ;
+        $this->set(compact('permanency', 'stores'));
     }
 
     public function permanencyByStore()

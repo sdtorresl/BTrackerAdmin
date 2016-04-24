@@ -42,7 +42,7 @@ class UsersTable extends Table
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    /*public function validationDefault(Validator $validator)
+    public function validationDefault(Validator $validator)
     {
         $validator
             ->integer('id')
@@ -72,22 +72,26 @@ class UsersTable extends Table
             ->notEmpty('password');
 
         $validator
-            ->allowEmpty('role');
+          ->notEmpty('role', 'A role is required')
+          ->add('role', 'inList', [
+              'rule' => ['inList', ['admin', 'author']],
+              'message' => 'Please enter a valid role'
+          ]);
 
         return $validator;
-    }*/
-
-    public function validationDefault(Validator $validator)
-    {
-        return $validator
-            ->notEmpty('username', 'A username is required')
-            ->notEmpty('password', 'A password is required')
-            ->notEmpty('role', 'A role is required')
-            ->add('role', 'inList', [
-                'rule' => ['inList', ['admin', 'author']],
-                'message' => 'Please enter a valid role'
-            ]);
     }
+
+    // public function validationDefault(Validator $validator)
+    // {
+    //     return $validator
+    //         ->notEmpty('username', 'A username is required')
+    //         ->notEmpty('password', 'A password is required')
+    //         ->notEmpty('role', 'A role is required')
+    //         ->add('role', 'inList', [
+    //             'rule' => ['inList', ['admin', 'author']],
+    //             'message' => 'Please enter a valid role'
+    //         ]);
+    // }
 
     /**
      * Returns a rules checker object that will be used for validating

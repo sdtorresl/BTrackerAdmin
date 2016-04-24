@@ -13,8 +13,15 @@
             echo $this->Form->input('entrance', [
                 'options' => array(
                     'empty' => 'Select',
-                    true => 'Yes', 
-                    false => 'No'
+                    true => __('Yes'), 
+                    false => __('No')
+                )
+            ]);
+            echo $this->Form->input('status', [
+                'options' => array(
+                    'empty' => 'Select',
+                    true => __('Active'), 
+                    false => __('Inactive')
                 )
             ]);
             echo $this->Form->input('products._ids', ['options' => $products]);

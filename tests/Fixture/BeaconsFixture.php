@@ -50,8 +50,8 @@ class BeaconsFixture extends TestFixture
             'name' => 'Lorem ipsum dolor sit amet',
             'minor' => 1,
             'detection_range' => 1,
-            'created' => '2016-04-05 03:48:59',
-            'modified' => '2016-04-05 03:48:59'
+            'created' => '2016-04-24 16:46:59',
+            'modified' => '2016-04-24 16:46:59'
         ],
     ];
 }

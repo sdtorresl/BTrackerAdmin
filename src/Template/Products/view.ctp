@@ -32,10 +32,18 @@
                 <th><?= __('Modified') ?></th>
                 <td><?= h($product->modified) ?></td>
             </tr>
-                    </table>
+                            <tr>
+                <th><?= __('Status') ?></th>
+                <td><?= $product->status ? __('Yes') : __('No'); ?></td>
+            </tr>
+                </table>
                 <div>
             <h4><?= __('Description') ?></h4>
             <?= $this->Text->autoParagraph(h($product->description)); ?>
+        </div>
+            <div>
+            <h4><?= __('Terms') ?></h4>
+            <?= $this->Text->autoParagraph(h($product->terms)); ?>
         </div>
                     <div class="related">
             <h4><?= __('Related Purchases') ?></h4>
@@ -46,6 +54,7 @@
                             <th><?= __('Product Id') ?></th>
                             <th><?= __('Customer Id') ?></th>
                             <th><?= __('Date') ?></th>
+                            <th><?= __('Price') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($product->purchases as $purchases): ?>
@@ -54,6 +63,7 @@
                     <td><?= h($purchases->product_id) ?></td>
                     <td><?= h($purchases->customer_id) ?></td>
                     <td><?= h($purchases->date) ?></td>
+                    <td><?= h($purchases->price) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['controller' => 'Purchases', 'action' => 'view', $purchases->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['controller' => 'Purchases', 'action' => 'edit', $purchases->id]) ?>
@@ -101,7 +111,10 @@
                             <th><?= __('Description') ?></th>
                             <th><?= __('Store Id') ?></th>
                             <th><?= __('Beacon Id') ?></th>
+                            <th><?= __('Created') ?></th>
+                            <th><?= __('Modified') ?></th>
                             <th><?= __('Entrance') ?></th>
+                            <th><?= __('Status') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($product->zones as $zones): ?>
@@ -111,7 +124,10 @@
                     <td><?= h($zones->description) ?></td>
                     <td><?= h($zones->store_id) ?></td>
                     <td><?= h($zones->beacon_id) ?></td>
+                    <td><?= h($zones->created) ?></td>
+                    <td><?= h($zones->modified) ?></td>
                     <td><?= h($zones->entrance) ?></td>
+                    <td><?= h($zones->status) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['controller' => 'Zones', 'action' => 'view', $zones->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['controller' => 'Zones', 'action' => 'edit', $zones->id]) ?>

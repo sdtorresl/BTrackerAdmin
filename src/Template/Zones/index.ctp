@@ -21,7 +21,7 @@
                         <td><?= $this->Number->format($zone->id) ?></td>
                         <td><?= h($zone->name) ?></td>
                         <td><?= $zone->has('store') ? $this->Html->link($zone->store->name, ['controller' => 'Stores', 'action' => 'view', $zone->store->id]) : '' ?></td>
-                        <td><?= $zone->has('beacon') ? $this->Html->link($zone->beacon->uuid, ['controller' => 'Beacons', 'action' => 'view', $zone->beacon->name]) : '' ?></td>
+                        <td><?= $zone->has('beacon') ? $this->Html->link($zone->beacon->name, ['controller' => 'Beacons', 'action' => 'view', $zone->beacon->id]) : '' ?></td>
                         <td><?= $zone->entrance ? __('Yes') : __('No'); ?></td>
                         <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $zone->id]) ?>

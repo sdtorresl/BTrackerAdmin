@@ -18,6 +18,7 @@
 *.txt text
 *.xml text
 *.yml text
+
 .htaccess text
 
 # Declare files that will always have CRLF line endings on checkout.
@@ -34,3 +35,4 @@
 *.mo binary
 *.pdf binary
 *.phar binary
+*.ttf binary

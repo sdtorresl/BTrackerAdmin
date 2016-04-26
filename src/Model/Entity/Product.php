@@ -9,13 +9,15 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property string $description
- * @property string $local_uri
  * @property float $price
  * @property float $discount
+ * @property string $terms
+ * @property $picture
+ * @property string $picture_dir
+ * @property bool $status
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
- * @property string $terms
- * @property bool $status
+ * @property string $type
  * @property \App\Model\Entity\Purchase[] $purchases
  * @property \App\Model\Entity\Customer[] $customers
  * @property \App\Model\Entity\Zone[] $zones

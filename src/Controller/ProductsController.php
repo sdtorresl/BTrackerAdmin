@@ -18,6 +18,12 @@ class ProductsController extends AppController
      */
     public function index()
     {
+        if ($this->request->is('post')) {
+            $value = $this->request->data('search');
+            $this->Products = $this->Products->find()
+                ->where(['name LIKE' => '%'.$value.'%']);
+        }
+
         $products = $this->paginate($this->Products);
 
         $this->set(compact('products'));

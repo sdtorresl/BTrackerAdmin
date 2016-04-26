@@ -136,3 +136,30 @@ thead {
 		font-size: 1.2rem;
 	}
 }
+.products .product-image {
+	text-align: center;
+    padding: 2% 2% 4% 2%;
+    line-height: 0;
+    .no-picture {
+		border: 1px solid #ddd;
+    	height: 200px;
+    	width: 100%;
+    	text-align: center;
+    	background: #ddd;
+    	i {
+    		margin-left: auto;
+		    margin-right: auto;
+		    color: #000;
+    	}
+    }
+	img {
+		height: 100%;
+		width: 100%;
+		border: 1px solid #ddd;
+	}
+}
+.file-field .btn, .file-field .btn-large {
+    margin-top: 0.6rem;
+    line-height: 2.4rem;
+    height: 2.4rem;
+}

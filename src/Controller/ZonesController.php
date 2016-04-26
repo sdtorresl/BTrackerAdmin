@@ -18,6 +18,17 @@ class ZonesController extends AppController
      */
     public function index()
     {
+        if ($this->request->is('post')) {
+            $value = $this->request->data('search');
+            $this->Zones = $this->Zones->find()
+                ->where(['OR' => [
+                    ['Stores.name LIKE' => '%'.$value.'%'], 
+                    ['Zones.name LIKE' => '%'.$value.'%'], 
+                    ['Beacons.name LIKE' => '%'.$value.'%']
+                ]]
+            );
+        }
+
         $this->paginate = [
             'contain' => ['Stores', 'Beacons']
         ];

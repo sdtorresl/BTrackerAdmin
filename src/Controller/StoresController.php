@@ -26,8 +26,9 @@ class StoresController extends AppController
         }
 
         $this->paginate = [
-            'contain' => ['Users']
+            'contain' => ['Users', 'Zones']
         ];
+
         $stores = $this->paginate($this->Stores);
 
         $this->set(compact('stores'));

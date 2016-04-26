@@ -32,6 +32,27 @@ class ProductsTable extends Table
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Proffer.Proffer', [
+            'picture' => [    // The name of your upload field
+                'root' => WWW_ROOT . 'files', // Customise the root upload folder here, or omit to use the default
+                'dir' => 'picture_dir',   // The name of the field to store the folder
+                'thumbnailSizes' => [ // Declare your thumbnails
+                    'square' => [   // Define the prefix of your thumbnail
+                        'w' => 300, // Width
+                        'h' => 300, // Height
+                        'crop' => true, // Crop will crop the image as well as resize it
+                        'jpeg_quality'  => 100,
+                        'png_compression_level' => 9
+                    ],
+                    'portrait' => [     // Define a second thumbnail
+                        'w' => 360,
+                        'h' => 540,
+                        'crop' => false
+                    ],
+                ],
+                'thumbnailMethod' => 'imagick'  // Options are Imagick, Gd or Gmagick
+            ]
+        ]);
 
         $this->hasMany('Purchases', [
             'foreignKey' => 'product_id'
@@ -68,9 +89,6 @@ class ProductsTable extends Table
             ->allowEmpty('description');
 
         $validator
-            ->allowEmpty('local_uri');
-
-        $validator
             ->decimal('price')
             ->allowEmpty('price');
 
@@ -80,6 +98,15 @@ class ProductsTable extends Table
 
         $validator
             ->allowEmpty('terms');
+
+        $validator
+            ->allowEmpty('picture');
+
+        $validator
+            ->allowEmpty('picture_dir');
+
+        $validator
+            ->allowEmpty('type');
 
         $validator
             ->boolean('status')

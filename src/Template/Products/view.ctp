@@ -3,51 +3,57 @@
         <h1><?= h($product->name) ?></h1>
     </div>
     <div class="wrapper">
-        <table class="vertical-table highlight bordered responsive-table">
-                        <tr>
-                <th><?= __('Name') ?></th>
-                <td><?= h($product->name) ?></td>
-            </tr>
-                        <tr>
-                <th><?= __('Local Uri') ?></th>
-                <td><?= h($product->local_uri) ?></td>
-            </tr>
-                                    <tr>
-                <th><?= __('Id') ?></th>
-                <td><?= $this->Number->format($product->id) ?></td>
-            </tr>
-                <tr>
-                <th><?= __('Price') ?></th>
-                <td><?= $this->Number->format($product->price) ?></td>
-            </tr>
-                <tr>
-                <th><?= __('Discount') ?></th>
-                <td><?= $this->Number->format($product->discount) ?></td>
-            </tr>
-                            <tr>
-                <th><?= __('Created') ?></th>
-                <td><?= h($product->created) ?></td>
-            </tr>
-                <tr>
-                <th><?= __('Modified') ?></th>
-                <td><?= h($product->modified) ?></td>
-            </tr>
-                            <tr>
-                <th><?= __('Status') ?></th>
-                <td><?= $product->status ? __('Yes') : __('No'); ?></td>
-            </tr>
+        <div class="product-image col l4 m12 s12 z-depth-1">
+            <?php if($product->picture): ?>
+                <?= $this->Html->image('../files/products/picture/' . $product->picture_dir . '/square_' . $product->picture); ?>
+            <?php else: ?>
+                <div class="no-picture valign-wrapper">
+                    <i class="large material-icons">videocam_off</i>
+                </div>
+            <?php endif; ?>
+        </div>
+        <div class="col l7 m12 s12 offset-l1">
+            <div class="row">
+                <table class="vertical-table highlight bordered responsive-table">
+                    <tr>
+                        <th><?= __('Id') ?></th>
+                        <td><?= $this->Number->format($product->id) ?></td>
+                    </tr>
+                    <tr>    
+                        <th><?= __('Price') ?></th>
+                        <td><?= $this->Number->format($product->price) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Discount') ?></th>
+                        <td><?= $this->Number->format($product->discount) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Status') ?></th>
+                        <td><?= $product->status ? __('Active') : __('Inactive'); ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Description') ?></th>
+                        <td><?= $this->Text->autoParagraph(h($product->description)); ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Terms and Conditions') ?></th>
+                        <td><?= $this->Text->autoParagraph(h($product->terms)); ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Created') ?></th>
+                        <td><?= h($product->created) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Modified') ?></th>
+                        <td><?= h($product->modified) ?></td>
+                    </tr>
                 </table>
-                <div>
-            <h4><?= __('Description') ?></h4>
-            <?= $this->Text->autoParagraph(h($product->description)); ?>
+            </div>
         </div>
-            <div>
-            <h4><?= __('Terms') ?></h4>
-            <?= $this->Text->autoParagraph(h($product->terms)); ?>
-        </div>
-                    <div class="related">
-            <h4><?= __('Related Purchases') ?></h4>
+        <div class="clear" style="height: 20px"></div>
+        <div class="related">
             <?php if (!empty($product->purchases)): ?>
+            <h4><?= __('Related Purchases') ?></h4>
             <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">
                 <tr>
                             <th><?= __('Id') ?></th>
@@ -74,9 +80,9 @@
             </table>
             <?php endif; ?>
         </div>
-            <div class="related">
-            <h4><?= __('Related Customers') ?></h4>
+        <div class="related">
             <?php if (!empty($product->customers)): ?>
+            <h4><?= __('Related Customers') ?></h4>
             <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">
                 <tr>
                             <th><?= __('Id') ?></th>
@@ -101,21 +107,21 @@
             </table>
             <?php endif; ?>
         </div>
-            <div class="related">
-            <h4><?= __('Related Zones') ?></h4>
+        <div class="related">
             <?php if (!empty($product->zones)): ?>
+            <h4><?= __('Related Zones') ?></h4>
             <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">
                 <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Name') ?></th>
-                            <th><?= __('Description') ?></th>
-                            <th><?= __('Store Id') ?></th>
-                            <th><?= __('Beacon Id') ?></th>
-                            <th><?= __('Created') ?></th>
-                            <th><?= __('Modified') ?></th>
-                            <th><?= __('Entrance') ?></th>
-                            <th><?= __('Status') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
+                    <th><?= __('Id') ?></th>
+                    <th><?= __('Name') ?></th>
+                    <th><?= __('Description') ?></th>
+                    <th><?= __('Store Id') ?></th>
+                    <th><?= __('Beacon Id') ?></th>
+                    <th><?= __('Created') ?></th>
+                    <th><?= __('Modified') ?></th>
+                    <th><?= __('Entrance') ?></th>
+                    <th><?= __('Status') ?></th>
+                    <th class="actions"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($product->zones as $zones): ?>
                 <tr>
@@ -138,5 +144,6 @@
             </table>
             <?php endif; ?>
         </div>
-        </div>
+        <div class="clear"></div>
+    </div>
 </div>

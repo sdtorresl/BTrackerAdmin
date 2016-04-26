@@ -18,6 +18,12 @@ class BeaconsController extends AppController
      */
     public function index()
     {
+        if ($this->request->is('post')) {
+            $value = $this->request->data('search');
+            $this->Beacons = $this->Beacons->find()
+                ->where(['OR' => [['name LIKE' => '%'.$value.'%'], ['uuid LIKE' => '%'.$value.'%']]]);
+        }
+
         $beacons = $this->paginate($this->Beacons);
 
         $this->set(compact('beacons'));

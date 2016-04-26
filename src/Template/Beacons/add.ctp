@@ -6,9 +6,9 @@
     <div class="wrapper">
         <?= $this->Form->create($beacon) ?>
         <?php
-            echo $this->Form->input('uuid');
-            echo $this->Form->input('major');
             echo $this->Form->input('name');
+            echo $this->Form->input('uuid', ['label' => 'UUID']);
+            echo $this->Form->input('major');
             echo $this->Form->input('minor');
             echo $this->Form->input('detection_range');
         ?>

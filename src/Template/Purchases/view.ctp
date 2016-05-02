@@ -1,5 +1,9 @@
 <div class="purchases view white-bg z-depth-3">
     <div class="wrapper">
+        <div class="flash">
+            <?= $this->Flash->render() ?>
+        </div>
+
         <div class="card-panel orange accent-3">
             <h1><?= h($purchase->id) ?></h1>
         </div>

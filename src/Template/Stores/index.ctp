@@ -3,6 +3,10 @@
 		<h1><?= __('Stores') ?></h1>
 	</div>
 	<div class="wrapper">
+		<div class="flash">
+            <?= $this->Flash->render() ?>
+        </div>
+        
 		<div class="search">
 			<?php echo $this->Form->create('search'); ?>
 			<div class="row">

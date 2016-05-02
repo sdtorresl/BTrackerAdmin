@@ -4,6 +4,10 @@
         <h1><?= __('Zones') ?></h1>
     </div>
     <div class="wrapper">
+        <div class="flash">
+            <?= $this->Flash->render('auth') ?>
+        </div>
+        
         <div class="search">
             <?php echo $this->Form->create('search'); ?>
             <div class="row">

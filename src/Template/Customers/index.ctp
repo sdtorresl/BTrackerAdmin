@@ -4,6 +4,10 @@
         <h1><?= __('Customers') ?></h1>
     </div>
     <div class="wrapper">
+        <div class="flash">
+            <?= $this->Flash->render() ?>
+        </div>
+
         <table class="bordered responsive-table highlight" cellpadding="0" cellspacing="0">
             <thead>
                 <tr>

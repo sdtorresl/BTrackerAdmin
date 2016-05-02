@@ -9,8 +9,8 @@
 				</div>
 				<div class="wrapper">
 					
-					<div style="color: orange">
-						<?= $this->Flash->render('auth') ?>
+					<div class="flash">
+						<?= $this->Flash->render() ?>
 					</div>
 					
 					<?= $this->Form->create() ?>

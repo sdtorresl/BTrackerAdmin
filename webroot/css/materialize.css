@@ -10122,6 +10122,9 @@ main {
 .wrapper {
   padding: 2% 5%; }
 
+.flash {
+  color: #ff9800; }
+
 .brand-logo img {
   max-height: 40px;
   margin: 10px; }
@@ -10178,15 +10181,19 @@ thead {
     thead th a {
       color: #ff9800; }
 
-.stores .title {
+.stores .title, .purchases .title {
   text-transform: uppercase;
   color: white;
   font-size: 1.5rem; }
-.stores .counter {
+.stores .price, .purchases .price {
+  text-align: center;
+  font-size: 3rem;
+  color: white; }
+.stores .counter, .purchases .counter {
   text-align: center;
   font-size: 4rem;
   color: white; }
-.stores .counter-title {
+.stores .counter-title, .stores .price-title, .purchases .counter-title, .purchases .price-title {
   font-size: 1.2rem; }
 
 .products .product-image {

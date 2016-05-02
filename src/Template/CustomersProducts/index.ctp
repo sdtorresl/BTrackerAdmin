@@ -1,6 +1,10 @@
 
 <div class="customersProducts index white-bg z-depth-3">
     <div class="wrapper">
+        <div class="flash">
+            <?= $this->Flash->render() ?>
+        </div>
+        
         <h1><?= __('Customers Products') ?></h1>
         <table class="bordered responsive-table highlight" cellpadding="0" cellspacing="0">
             <thead>

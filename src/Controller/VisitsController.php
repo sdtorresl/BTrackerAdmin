@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Datasource\ConnectionManager;
+use DateTime;
 
 /**
  * Visits Controller
@@ -11,6 +12,13 @@ use Cake\Datasource\ConnectionManager;
  */
 class VisitsController extends AppController
 {
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Util');
+    }
+
+    private $months = [1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April', 5 => 'May', 6 => 'June', 7 => 'July', 8 => 'August', 9 => 'October', 10 => 'September', 11 => 'October', 12 => 'November', 13 => 'December'];
 
     /**
      * Index method
@@ -98,39 +106,86 @@ class VisitsController extends AppController
         $this->set('_serialize', ['visit']);
     }
 
-    /**
-     * Delete method
-     *
-     * @param string|null $id Visit id.
-     * @return \Cake\Network\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        $visit = $this->Visits->get($id);
-        if ($this->Visits->delete($visit)) {
-            $this->Flash->success(__('The visit has been deleted.'));
-        } else {
-            $this->Flash->error(__('The visit could not be deleted. Please, try again.'));
-        }
-        return $this->redirect(['action' => 'index']);
-    }
-
     public function permanency()
     {
         $this->loadModel('Stores');
         $stores = $this->Stores->find('list', ['limit' => 200]);
+
+        if ($this->request->is('post')) {
+            $this->request->data('store') ? $store_id = $this->request->data('store') : $store_id = null;
+            $this->request->data('month') ? $month = $this->request->data('month') : $month = null;
+        }
 
         $query = $this->Visits
             ->find('all', ['contain' => ['Zones']]);
         $query->select([
             'name' => 'Zones.name', 
             'permanency' => $query->func()->avg('TIMESTAMPDIFF(SECOND, trigger_time, leave_time)')]);
-        $query->group('Zones.id');
-        $permanency = $query;
+        if (isset($store_id)) {
+            $query->where(['Zones.store_id' => $store_id]);
+        }
 
-        $this->set(compact('permanency', 'stores'));
+        if (isset($month)) {
+            $firstMonthDay = $this->Util->firstMonthDay($month);
+            $lastMonthDay = $this->Util->lastMonthDay($month);
+            
+            $firstWeekEndDay = $this->Util->firstWeekEndDay($month);
+            $secondWeekEndDay = $this->Util->secondWeekEndDay($month);
+            $thirdWeekEndDay = $this->Util->thirdWeekEndDay($month);
+            $fourthWeekEndDay = $this->Util->fourthWeekEndDay($month);
+            $fifthWeekEndDay = $this->Util->fifthWeekEndDay($month);
+
+            $week1 = clone $query;
+            $week1->where([
+                'Visits.trigger_time >' => new DateTime($firstMonthDay),
+                'Visits.trigger_time <=' => new DateTime($firstWeekEndDay)
+            ]);
+            $week1->group('Zones.id');
+
+            $week2 = clone $query;
+            $week2->where([
+                'Visits.trigger_time >' => new DateTime($firstWeekEndDay),
+                'Visits.trigger_time <=' => new DateTime($secondWeekEndDay)
+            ]);
+            $week2->group('Zones.id');
+
+            $week3 = clone $query;
+            $week3->where([
+                'Visits.trigger_time >' => new DateTime($secondWeekEndDay),
+                'Visits.trigger_time <=' => new DateTime($thirdWeekEndDay)
+            ]);
+            $week3->group('Zones.id');
+
+            $week4 = clone $query;
+            $week4->where([
+                'Visits.trigger_time >' => new DateTime($thirdWeekEndDay),
+                'Visits.trigger_time <=' => new DateTime($fourthWeekEndDay)
+            ]);
+            $week4->group('Zones.id');
+
+            $week5 = clone $query;
+            $week5->where([
+                'Visits.trigger_time >' => new DateTime($fourthWeekEndDay),
+                'Visits.trigger_time <=' => new DateTime($fifthWeekEndDay)
+            ]);
+            $week5->group('Zones.id');
+
+            $query->where([
+                'Visits.trigger_time >=' => new DateTime($firstMonthDay),
+                'Visits.trigger_time <=' => new DateTime($lastMonthDay)
+            ]);
+
+            $this->set(compact('week1', 'week2', 'week3', 'week4', 'week5'));
+
+        }
+
+        $query->group('Zones.id');
+
+        $permanency = $query;
+        
+        $months = $this->months;
+
+        $this->set(compact('permanency', 'stores', 'months'));
     }
 
     public function permanencyByStore()
@@ -156,15 +211,83 @@ class VisitsController extends AppController
 
     public function zones()
     {
+        $this->loadModel('Stores');
+        $stores = $this->Stores->find('list', ['limit' => 200]);
+        
+        if ($this->request->is('post')) {
+            $this->request->data('store') ? $store_id = $this->request->data('store') : $store_id = null;
+            $this->request->data('month') ? $month = $this->request->data('month') : $month = null;
+        }
+
         $query = $this->Visits
             ->find('all', ['contain' => ['Zones']]);
         $query->select([
             'name' => 'Zones.name', 
             'visits' => $query->func()->count('*')]);
+
+        if (isset($store_id)) {
+            $query->where(['Zones.store_id' => $store_id]);
+        }
+
+        if (isset($month)) {
+            $firstMonthDay = $this->Util->firstMonthDay($month);
+            $lastMonthDay = $this->Util->lastMonthDay($month);
+            
+            $firstWeekEndDay = $this->Util->firstWeekEndDay($month);
+            $secondWeekEndDay = $this->Util->secondWeekEndDay($month);
+            $thirdWeekEndDay = $this->Util->thirdWeekEndDay($month);
+            $fourthWeekEndDay = $this->Util->fourthWeekEndDay($month);
+            $fifthWeekEndDay = $this->Util->fifthWeekEndDay($month);
+
+            $week1 = clone $query;
+            $week1->where([
+                'Visits.trigger_time >' => new DateTime($firstMonthDay),
+                'Visits.trigger_time <=' => new DateTime($firstWeekEndDay)
+            ]);
+            $week1->group('Zones.id');
+
+            $week2 = clone $query;
+            $week2->where([
+                'Visits.trigger_time >' => new DateTime($firstWeekEndDay),
+                'Visits.trigger_time <=' => new DateTime($secondWeekEndDay)
+            ]);
+            $week2->group('Zones.id');
+
+            $week3 = clone $query;
+            $week3->where([
+                'Visits.trigger_time >' => new DateTime($secondWeekEndDay),
+                'Visits.trigger_time <=' => new DateTime($thirdWeekEndDay)
+            ]);
+            $week3->group('Zones.id');
+
+            $week4 = clone $query;
+            $week4->where([
+                'Visits.trigger_time >' => new DateTime($thirdWeekEndDay),
+                'Visits.trigger_time <=' => new DateTime($fourthWeekEndDay)
+            ]);
+            $week4->group('Zones.id');
+
+            $week5 = clone $query;
+            $week5->where([
+                'Visits.trigger_time >' => new DateTime($fourthWeekEndDay),
+                'Visits.trigger_time <=' => new DateTime($fifthWeekEndDay)
+            ]);
+            $week5->group('Zones.id');
+
+            $query->where([
+                'Visits.trigger_time >=' => new DateTime($firstMonthDay),
+                'Visits.trigger_time <=' => new DateTime($lastMonthDay)
+            ]);
+
+            $this->set(compact('week1', 'week2', 'week3', 'week4', 'week5'));
+        }
+
         $query->group('Zones.id');
         $query->order(['Zones.store_id', 'Zones.entrance' => 'DESC']);
+        $visits = $query;
 
-        $this->set('permanency', $query) ;
+        $months = $this->months;
+        $this->set(compact('visits', 'stores', 'months')) ;
     }
 
     public function entranceRate()

@@ -50,11 +50,11 @@
 				<div class="card-panel cyan darken-4 center-align">
 					<a href="purchases" class="clean-link">
 						<?= $this->Html->image('products.svg', ['alt' => 'Products', 'class' => 'icon']) ?>
-						<div class="white-text"><?= __('Total purchases') ?></div>
+						<div class="white-text"><?= __('Redemptions') ?></div>
 					</a>
 				</div>
 			</div>
-			<div class="col s12 m6 l4">
+			<!-- <div class="col s12 m6 l4">
 				<div class="card-panel cyan darken-4 center-align">
 					<a href="purchases/byzone" class="clean-link">
 						<?= $this->Html->image('zones.svg', ['alt' => 'Zones', 'class' => 'icon']) ?>
@@ -69,7 +69,7 @@
 						<div class="white-text"><?= __('Customer preferences') ?></div>
 					</a>
 				</div>
-			</div>
+			</div> -->
 			<div class="col s12 m6 l4">
 				<div class="card-panel cyan darken-4 center-align">
 					<a href="visits" class="clean-link">

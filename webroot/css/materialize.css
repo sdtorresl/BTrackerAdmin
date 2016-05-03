@@ -10220,4 +10220,13 @@ thead {
   line-height: 2.4rem;
   height: 2.4rem; }
 
+.legend li {
+  vertical-align: middle; }
+.legend span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  margin-right: 5px; }
+
 /*# sourceMappingURL=materialize.css.map */

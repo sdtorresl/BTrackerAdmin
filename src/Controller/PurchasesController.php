@@ -24,8 +24,8 @@ class PurchasesController extends AppController
      */
     public function index()
     {
-        $firstMonthDay = $this->Util->firstMonthDay();
-        $lastMonthDay = $this->Util->lastMonthDay();
+        $firstMonthDay = $this->Util->firstCurrentMonthDay();
+        $lastMonthDay = $this->Util->lastCurrentMonthDay();
 
         // Total purchases
         $total = $this->Purchases->find('all');

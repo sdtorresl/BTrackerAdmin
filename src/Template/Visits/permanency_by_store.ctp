@@ -32,11 +32,25 @@
 		<?php endforeach; ?> 
 	];
 
+	var options = {
+	    segmentShowStroke: false,
+	    animateRotate: true,
+	    responsive: true,
+	    legendTemplate : '<ul class="legend">'
+				+'<% for (var i=0; i<pieData.length; i++) { %>'
+            	+'<li>'
+            		+'<span style=\"background-color:<%=pieData[i].color%>\"></span>'
+                	+ ' '
+                	+'<% if (pieData[i].label) { %><%= pieData[i].label + ": " + Math.round(pieData[i].value/60,2) + " min" %><% } %>'
+            	+'</li>'
+            	+'<% } %>'
+            +'</ul>'
+	}
+
 	window.onload = function (){
 		var ctx = document.getElementById("canvas").getContext("2d");
-		window.myPie = new Chart(ctx).Pie(pieData, {
-			responsive: true
-		});
+		window.myPie = new Chart(ctx).Pie(pieData, options);
+		document.getElementById('js-legend').innerHTML = myPie.generateLegend();
 	}
 </script>
 
@@ -50,8 +64,11 @@
 	<div class="wrapper">
 		<p><?= __('Analize the average permanency of your customers in all zones by store (seconds)') ?></p>
 		
-		<div class="chart-container col l8 m10 s12 offset-l2 offset-m1">
+		<div class="chart-container col l6 m8 s12 offset-l3">
 			<canvas id="canvas" height="80px" width="100px"></canvas>
+		</div>
+		<div class="col l3 m4 s12">
+			<div id="js-legend" class="chart-legend"></div>
 		</div>
 
 		<div class="clear"></div>    

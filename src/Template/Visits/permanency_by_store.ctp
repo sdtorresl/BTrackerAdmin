@@ -23,7 +23,7 @@
 		<?=
 			"{" .
 			'label: "' . h($visit['store']) . '",' .
-			'value: ' . h($visit['permanency']) . ',' . 
+			'value: ' . str_replace(",", "", h($visit['permanency'])) . ',' . 
 			'color: "' . $colors[$key][0] . '",' .
 			'highlight: "' . $colors[$key][1] . '"' .
 			"}," 

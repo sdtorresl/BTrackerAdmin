@@ -40,10 +40,12 @@ class ZonesTable extends Table
         ]);
         $this->belongsTo('Beacons', [
             'foreignKey' => 'beacon_id',
-            'joinType' => 'INNER'
+            'joinType' => 'INNER',
+            'cascadeCallbacks' => true
         ]);
         $this->hasMany('Visits', [
-            'foreignKey' => 'zone_id'
+            'foreignKey' => 'zone_id',
+            'cascadeCallbacks' => true
         ]);
         $this->belongsToMany('Products', [
             'foreignKey' => 'zone_id',

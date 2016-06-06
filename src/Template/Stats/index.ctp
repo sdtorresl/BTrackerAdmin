@@ -54,14 +54,16 @@
 					</a>
 				</div>
 			</div>
-			<!-- <div class="col s12 m6 l4">
+			<div class="col s12 m6 l4">
 				<div class="card-panel cyan darken-4 center-align">
-					<a href="purchases/byzone" class="clean-link">
-						<?= $this->Html->image('zones.svg', ['alt' => 'Zones', 'class' => 'icon']) ?>
-						<div class="white-text"><?= __('Purchases by zone') ?></div>
+					<a href="customers" class="clean-link">
+						<!-- <i class="large material-icons">supervisor_account</i> -->
+						<?= $this->Html->image('users.svg', ['alt' => 'Customers', 'class' => 'icon']) ?>
+						<div class="white-text"><?= __('Customers') ?></div>
 					</a>
 				</div>
 			</div>
+			<!--
 			<div class="col s12 m6 l4">
 				<div class="card-panel cyan darken-4 center-align">
 					<a href="products/preferences" class="clean-link">
@@ -72,9 +74,9 @@
 			</div> -->
 			<div class="col s12 m6 l4">
 				<div class="card-panel cyan darken-4 center-align">
-					<a href="visits" class="clean-link">
+					<a href="customersProducts" class="clean-link">
 						<?= $this->Html->image('prefered_products.svg', ['alt' => 'Products prefered', 'class' => 'icon']) ?>
-						<div class="white-text"><?= __('Products prefered') ?></div>
+						<div class="white-text"><?= __('Favorite Offers') ?></div>
 					</a>
 				</div>
 			</div>

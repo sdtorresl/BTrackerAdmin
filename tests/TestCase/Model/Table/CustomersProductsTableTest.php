@@ -29,8 +29,11 @@ class CustomersProductsTableTest extends TestCase
         'app.purchases',
         'app.products',
         'app.zones',
-        'app.products_zones',
-        'app.visits'
+        'app.stores',
+        'app.users',
+        'app.beacons',
+        'app.visits',
+        'app.products_zones'
     ];
 
     /**

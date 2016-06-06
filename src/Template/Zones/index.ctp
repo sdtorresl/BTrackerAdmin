@@ -5,7 +5,7 @@
     </div>
     <div class="wrapper">
         <div class="flash">
-            <?= $this->Flash->render('auth') ?>
+            <?= $this->Flash->render() ?>
         </div>
         
         <div class="search">

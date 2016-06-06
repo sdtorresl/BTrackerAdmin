@@ -67,23 +67,6 @@ class PurchasesController extends AppController
         $this->set('_serialize', ['purchases', 'total', 'totalMonth', 'redemptions', 'redemptionsMonth']);
     }
 
-    // /**
-    //  * View method
-    //  *
-    //  * @param string|null $id Purchase id.
-    //  * @return \Cake\Network\Response|null
-    //  * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-    //  */
-    // public function view($id = null)
-    // {
-    //     $purchase = $this->Purchases->get($id, [
-    //         'contain' => ['Products', 'Customers']
-    //     ]);
-
-    //     $this->set('purchase', $purchase);
-    //     $this->set('_serialize', ['purchase']);
-    // }
-
     /**
      * Add method
      *
@@ -152,9 +135,4 @@ class PurchasesController extends AppController
     //     }
     //     return $this->redirect(['action' => 'index']);
     // }
-
-    public function byzone()
-    {
-
-    }
 }

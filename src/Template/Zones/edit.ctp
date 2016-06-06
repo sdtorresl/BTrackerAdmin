@@ -4,6 +4,11 @@
         <h1><?= __('Edit Zone') ?></h1>
     </div>
     <div class="wrapper">
+
+        <div class="flash">
+            <?= $this->Flash->render() ?>
+        </div>
+
         <?= $this->Form->create($zone) ?>
         <?php
             echo $this->Form->input('name');
@@ -12,14 +17,12 @@
             echo $this->Form->input('beacon_id', ['options' => $beacons]);
             echo $this->Form->input('entrance', [
                 'options' => array(
-                    'empty' => 'Select',
-                    true => __('Yes'), 
-                    false => __('No')
+                    false => __('No'),
+                    true => __('Yes') 
                 )
             ]);
             echo $this->Form->input('status', [
                 'options' => array(
-                    'empty' => 'Select',
                     true => __('Active'), 
                     false => __('Inactive')
                 )

@@ -18,6 +18,12 @@ class CustomersController extends AppController
      */
     public function index()
     {
+        if ($this->request->is('post')) {
+            $value = $this->request->data('search');
+            $this->Customers = $this->Customers->find()
+                ->where(['mac LIKE' => '%'.$value.'%']);
+        }
+
         $customers = $this->paginate($this->Customers);
 
         $this->set(compact('customers'));

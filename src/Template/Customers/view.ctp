@@ -1,36 +1,41 @@
 <div class="customers view white-bg z-depth-3">
     <div class="card-panel grey darken-4">
-        <h1><?= h($customer->mac) ?></h1>
+        <a href="/customers" class="left">
+            <i class="material-icons back">keyboard_backspace</i>
+        </a>
+        <h1><?= __('Customer Detail') ?></h1>
     </div>
-    <div class="wrapper">
+
+    <div class="wrapper">    
         <table class="vertical-table highlight bordered responsive-table">
-                        <tr>
+            <tr>
                 <th><?= __('Mac') ?></th>
                 <td><?= h($customer->mac) ?></td>
             </tr>
-                                    <tr>
+            <tr>
                 <th><?= __('Id') ?></th>
                 <td><?= $this->Number->format($customer->id) ?></td>
             </tr>
-                            <tr>
+            <tr>
                 <th><?= __('Created') ?></th>
                 <td><?= h($customer->created) ?></td>
             </tr>
-                <tr>
+            <tr>
                 <th><?= __('Modified') ?></th>
                 <td><?= h($customer->modified) ?></td>
             </tr>
-                    </table>
-                <div class="related">
-            <h4><?= __('Related Purchases') ?></h4>
+        </table>
+        
+        <div class="related">
+            <h4><?= __('Redemptions') ?></h4>
             <?php if (!empty($customer->purchases)): ?>
             <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">
                 <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Product Id') ?></th>
-                            <th><?= __('Customer Id') ?></th>
-                            <th><?= __('Date') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
+                    <th><?= __('Id') ?></th>
+                    <th><?= __('Product Id') ?></th>
+                    <th><?= __('Customer Id') ?></th>
+                    <th><?= __('Date') ?></th>
+                    <!-- <th class="actions"><?= __('Actions') ?></th> -->
                 </tr>
                 <?php foreach ($customer->purchases as $purchases): ?>
                 <tr>
@@ -38,18 +43,18 @@
                     <td><?= h($purchases->product_id) ?></td>
                     <td><?= h($purchases->customer_id) ?></td>
                     <td><?= h($purchases->date) ?></td>
-                    <td class="actions">
+                    <!-- <td class="actions">
                         <?= $this->Html->link(__('View'), ['controller' => 'Purchases', 'action' => 'view', $purchases->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['controller' => 'Purchases', 'action' => 'edit', $purchases->id]) ?>
                         <?= $this->Form->postLink(__('Delete'), ['controller' => 'Purchases', 'action' => 'delete', $purchases->id], ['confirm' => __('Are you sure you want to delete # {0}?', $purchases->id)]) ?>
-                    </td>
+                    </td> -->
                 </tr>
                 <?php endforeach; ?>
             </table>
             <?php endif; ?>
         </div>
             <div class="related">
-            <h4><?= __('Related Visits') ?></h4>
+            <h4><?= __('Visits') ?></h4>
             <?php if (!empty($customer->visits)): ?>
             <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">
                 <tr>
@@ -78,7 +83,7 @@
             <?php endif; ?>
         </div>
             <div class="related">
-            <h4><?= __('Related Products') ?></h4>
+            <h4><?= __('Wishlist') ?></h4>
             <?php if (!empty($customer->products)): ?>
             <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">
                 <tr>

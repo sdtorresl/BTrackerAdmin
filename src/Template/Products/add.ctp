@@ -4,14 +4,17 @@
         <h1><?= __('Add Offer') ?></h1>
     </div>
     <div class="wrapper">
+        <div class="flash">
+            <?= $this->Flash->render() ?>
+        </div>
+
         <?= $this->Form->create($product, ['type' => 'file']) ?>
         <?php
             echo $this->Form->input('name');
             echo $this->Form->input('type', [
                 'options' => array(
-                    'empty' => 'Select',
-                    'message' => __('Message'), 
                     'discount' => __('Discount'),
+                    'message' => __('Message'), 
                     'others' => __('Others')
                 )
             ]);

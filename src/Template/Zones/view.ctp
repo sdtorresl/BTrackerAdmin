@@ -14,7 +14,7 @@
             </tr>
                         <tr>
                 <th><?= __('Beacon') ?></th>
-                <td><?= $zone->has('beacon') ? $this->Html->link($zone->beacon->uuid, ['controller' => 'Beacons', 'action' => 'view', $zone->beacon->id]) : '' ?></td>
+                <td><?= $zone->has('beacon') ? $this->Html->link($zone->beacon->name, ['controller' => 'Beacons', 'action' => 'view', $zone->beacon->id]) : '' ?></td>
             </tr>
                                     <tr>
                 <th><?= __('Id') ?></th>
@@ -46,13 +46,13 @@
             <?php if (!empty($zone->visits)): ?>
             <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">
                 <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Trigger Time') ?></th>
-                            <th><?= __('Leave Time') ?></th>
-                            <th><?= __('Customer Id') ?></th>
-                            <th><?= __('Zone Id') ?></th>
-                            <th><?= __('Viewed') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
+                    <th><?= __('Id') ?></th>
+                    <th><?= __('Trigger Time') ?></th>
+                    <th><?= __('Leave Time') ?></th>
+                    <th><?= __('Customer Id') ?></th>
+                    <th><?= __('Zone Id') ?></th>
+                    <th><?= __('Viewed') ?></th>
+                    <th class="actions"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($zone->visits as $visits): ?>
                 <tr>
@@ -77,32 +77,23 @@
             <?php if (!empty($zone->products)): ?>
             <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">
                 <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Name') ?></th>
-                            <th><?= __('Description') ?></th>
-                            <th><?= __('Local Uri') ?></th>
-                            <th><?= __('Price') ?></th>
-                            <th><?= __('Discount') ?></th>
-                            <th><?= __('Created') ?></th>
-                            <th><?= __('Modified') ?></th>
-                            <th><?= __('Terms') ?></th>
-                            <th><?= __('Status') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
+                    <th><?= __('Name') ?></th>
+                    <th><?= __('Description') ?></th>
+                    <th><?= __('Price') ?></th>
+                    <th class="center-align"><?= __('Discount') ?></th>
+                    <th class="center-align"><?= __('Status') ?></th>
+                    <th class="center-align"><?= __('Type') ?></th>
+                    <th class="actions right-align"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($zone->products as $products): ?>
                 <tr>
-                    <td><?= h($products->id) ?></td>
-                    <td><?= h($products->name) ?></td>
+                    <td><?= $this->Html->link(h($products->name), ['controller' => 'Products', 'action' => 'view', $products->id]) ?></td>
                     <td><?= h($products->description) ?></td>
-                    <td><?= h($products->local_uri) ?></td>
-                    <td><?= h($products->price) ?></td>
-                    <td><?= h($products->discount) ?></td>
-                    <td><?= h($products->created) ?></td>
-                    <td><?= h($products->modified) ?></td>
-                    <td><?= h($products->terms) ?></td>
-                    <td><?= h($products->status) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['controller' => 'Products', 'action' => 'view', $products->id]) ?>
+                    <td><?= $this->Number->currency($products->price) ?></td>
+                    <td class="center-align"><?= $this->Number->toPercentage($products->discount,0) ?></td>
+                    <td class="center-align"><?= $products->status ? __('Active') : __('Inactive') ?></td>
+                    <td class="center-align"><?= h($products->type) ?></td>
+                    <td class="actions right-align">
                         <?= $this->Html->link(__('Edit'), ['controller' => 'Products', 'action' => 'edit', $products->id]) ?>
                         <?= $this->Form->postLink(__('Delete'), ['controller' => 'Products', 'action' => 'delete', $products->id], ['confirm' => __('Are you sure you want to delete # {0}?', $products->id)]) ?>
                     </td>

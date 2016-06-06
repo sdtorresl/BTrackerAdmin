@@ -59,8 +59,36 @@
 		<?php foreach ($stores as $store): ?>
 			<div class="clear"></div>    
 			<h2><?= $store->name ?></h2>
-			<div class="chart-container col l8 m10 s12 offset-l2 offset-m1">
+			<div class="chart-container col l6 m8 s12 offset-l3">
 				<canvas id="canvas<?= $store->id?>" height="80px" width="100px"></canvas>
+			</div>
+			
+			
+
+			<!-- Conversion rate -->
+			<div class="col l3">
+				<div class="card z-depth-2 blue-grey">
+					<div class="wrapper">
+						<div class="title"><?= __('Conversion rate') ?></div>
+						<div class="price">
+							<div>
+								<?php 
+
+								foreach ($entrance_rate as $key => $visit) {
+									if ($visit['store'] == $store->name) { 
+										$visit['entrance'] ? $entrance = $visit['visits'] : $total = $visit['visits'];
+									}
+								} 
+								
+								$conversionRate = ($entrance/$total) * 100;
+								echo $this->Number->toPercentage($conversionRate, 1);
+								?>
+								
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 		<?php endforeach; ?>
 		

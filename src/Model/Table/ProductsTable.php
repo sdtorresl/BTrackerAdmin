@@ -106,7 +106,7 @@ class ProductsTable extends Table
             ->allowEmpty('picture_dir');
 
         $validator
-            ->allowEmpty('type');
+            ->notEmpty('type');
 
         $validator
             ->boolean('status')

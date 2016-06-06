@@ -51,54 +51,43 @@
             </div>
         </div>
         <div class="clear" style="height: 20px"></div>
+
         <div class="related">
             <?php if (!empty($product->purchases)): ?>
             <h4><?= __('Related Purchases') ?></h4>
-            <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">
-                <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Product Id') ?></th>
-                            <th><?= __('Customer Id') ?></th>
-                            <th><?= __('Date') ?></th>
-                            <th><?= __('Price') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                </tr>
+            <table cellpadding="0" cellspacing="0" class="vertical-table highlight bordered responsive-table">
+                <thead>
+                    <tr>
+                        <th><?= __('Date') ?></th>
+                        <th class="right-align"><?= __('Price') ?></th>
+                    </tr>
+                </thead>
+
                 <?php foreach ($product->purchases as $purchases): ?>
                 <tr>
-                    <td><?= h($purchases->id) ?></td>
-                    <td><?= h($purchases->product_id) ?></td>
-                    <td><?= h($purchases->customer_id) ?></td>
                     <td><?= h($purchases->date) ?></td>
-                    <td><?= h($purchases->price) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['controller' => 'Purchases', 'action' => 'view', $purchases->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['controller' => 'Purchases', 'action' => 'edit', $purchases->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Purchases', 'action' => 'delete', $purchases->id], ['confirm' => __('Are you sure you want to delete # {0}?', $purchases->id)]) ?>
-                    </td>
+                    <td class="right-align"><?= h($this->Number->currency($purchases->price)) ?></td>
                 </tr>
                 <?php endforeach; ?>
             </table>
             <?php endif; ?>
         </div>
+
         <div class="related">
             <?php if (!empty($product->customers)): ?>
             <h4><?= __('Related Customers') ?></h4>
             <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">
-                <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Mac') ?></th>
-                            <th><?= __('Created') ?></th>
-                            <th><?= __('Modified') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                </tr>
+                <thead>    
+                    <tr>
+                        <th><?= __('Mac') ?></th>
+                        <th class="actions right-align"><?= __('Actions') ?></th>
+                    </tr>
+                </thead>
+
                 <?php foreach ($product->customers as $customers): ?>
                 <tr>
-                    <td><?= h($customers->id) ?></td>
-                    <td><?= h($customers->mac) ?></td>
-                    <td><?= h($customers->created) ?></td>
-                    <td><?= h($customers->modified) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['controller' => 'Customers', 'action' => 'view', $customers->id]) ?>
+                    <td><?= $this->Html->link(h($customers->mac), ['controller' => 'Customers', 'action' => 'view', $customers->id]) ?></td>
+                    <td class="actions right-align">
                         <?= $this->Html->link(__('Edit'), ['controller' => 'Customers', 'action' => 'edit', $customers->id]) ?>
                         <?= $this->Form->postLink(__('Delete'), ['controller' => 'Customers', 'action' => 'delete', $customers->id], ['confirm' => __('Are you sure you want to delete # {0}?', $customers->id)]) ?>
                     </td>
@@ -107,35 +96,27 @@
             </table>
             <?php endif; ?>
         </div>
+
         <div class="related">
             <?php if (!empty($product->zones)): ?>
             <h4><?= __('Related Zones') ?></h4>
             <table cellpadding="0" cellspacing="0" class="highlight bordered responsive-table">
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <th><?= __('Name') ?></th>
-                    <th><?= __('Description') ?></th>
-                    <th><?= __('Store Id') ?></th>
-                    <th><?= __('Beacon Id') ?></th>
-                    <th><?= __('Created') ?></th>
-                    <th><?= __('Modified') ?></th>
-                    <th><?= __('Entrance') ?></th>
-                    <th><?= __('Status') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th><?= __('Id') ?></th>
+                        <th><?= __('Description') ?></th>
+                        <th><?= __('Entrance') ?></th>
+                        <th><?= __('Status') ?></th>
+                        <th class="actions right-align"><?= __('Actions') ?></th>
+                    </tr>
+                </thead>
                 <?php foreach ($product->zones as $zones): ?>
                 <tr>
-                    <td><?= h($zones->id) ?></td>
-                    <td><?= h($zones->name) ?></td>
+                    <td><?= $this->Html->link(h($zones->name), ['controller' => 'Zones', 'action' => 'view', $zones->id]) ?></td>
                     <td><?= h($zones->description) ?></td>
-                    <td><?= h($zones->store_id) ?></td>
-                    <td><?= h($zones->beacon_id) ?></td>
-                    <td><?= h($zones->created) ?></td>
-                    <td><?= h($zones->modified) ?></td>
-                    <td><?= h($zones->entrance) ?></td>
-                    <td><?= h($zones->status) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['controller' => 'Zones', 'action' => 'view', $zones->id]) ?>
+                    <td><?= $zones->entrance ? __('Yes') : __('No') ?></td>
+                    <td><?= $zones->status ? __('Active') : __('Inactive')?></td>
+                    <td class="actions right-align">
                         <?= $this->Html->link(__('Edit'), ['controller' => 'Zones', 'action' => 'edit', $zones->id]) ?>
                         <?= $this->Form->postLink(__('Delete'), ['controller' => 'Zones', 'action' => 'delete', $zones->id], ['confirm' => __('Are you sure you want to delete # {0}?', $zones->id)]) ?>
                     </td>
@@ -145,5 +126,11 @@
             <?php endif; ?>
         </div>
         <div class="clear"></div>
+
+        <div class="fixed-action-btn" style="bottom: 25px; right: 25px;">
+            <a class="btn-floating btn-large orange" href="<?php echo '/products/edit/' . $product->id ?>" alt="Add promotion">
+                <i class="large material-icons">edit</i>
+            </a>
+        </div>
     </div>
 </div>
